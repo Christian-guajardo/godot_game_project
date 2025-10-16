@@ -1,6 +1,7 @@
 [gd_scene load_steps=12 format=3 uid="uid://bpupadj04ovie"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_t3o4r"]
+[ext_resource type="ArrayMesh" uid="uid://b8roqd48o174e" path="res://PlayerModel/5aeb54505baf2a956b2e68f4fe02bcce.obj" id="2_0j6jw"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_231fi"]
 size = Vector3(10, 1, 5)
@@ -26,8 +27,7 @@ size = Vector3(2, 1, 5)
 size = Vector3(2, 1, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_b5s18"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_rjv73"]
+size = Vector3(0.518829, 1.15442, 1)
 
 [node name="Zone1" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -82,13 +82,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13323, 0)
 script = ExtResource("1_t3o4r")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0106659, 0.00372314, 2.77556e-16)
 shape = SubResource("BoxShape3D_b5s18")
 metadata/_edit_lock_ = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
-mesh = SubResource("BoxMesh_rjv73")
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("2_0j6jw")
 skeleton = NodePath("")
 metadata/_edit_lock_ = true
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
 transform = Transform3D(-4.15117e-08, 0.31323, -0.949677, 1.36917e-08, 0.949677, 0.31323, 1, 1.77636e-15, -4.37114e-08, -1.58091, 1.28093, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CharacterBody3D/Camera3D"]
