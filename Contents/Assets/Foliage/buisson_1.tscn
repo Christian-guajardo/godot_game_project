@@ -1,0 +1,41 @@
+[gd_scene load_steps=4 format=3 uid="uid://flv23fke35rm"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_brnvp"]
+size = Vector3(1.5488892, 0.430542, 1.5836182)
+
+[sub_resource type="SphereMesh" id="SphereMesh_wrkj1"]
+radius = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_gsg3a"]
+albedo_color = Color(0.50980395, 0.6901961, 0.105882354, 1)
+
+[node name="buisson_1" type="StaticBody3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.009857178, 0.6178589, -0.0010375706)
+shape = SubResource("BoxShape3D_brnvp")
+
+[node name="feuille_buisson" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.30640095, 0)
+mesh = SubResource("SphereMesh_wrkj1")
+surface_material_override/0 = SubResource("StandardMaterial3D_gsg3a")
+
+[node name="feuille_buisson2" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8407463, -0.5414294, 0, 0.5414294, 0.8407463, 0, 0, 0, 1, -0.20852149, 0.24907175, 0)
+mesh = SubResource("SphereMesh_wrkj1")
+surface_material_override/0 = SubResource("StandardMaterial3D_gsg3a")
+
+[node name="feuille_buisson3" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4999547, -0.86605155, 0, 0.86605155, 0.4999547, 0, 0, 0, 1, -0.33877194, 0.13327536, 0)
+mesh = SubResource("SphereMesh_wrkj1")
+surface_material_override/0 = SubResource("StandardMaterial3D_gsg3a")
+
+[node name="feuille_buisson4" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.8058249, 0.59215397, 0, -0.59215397, 0.8058249, 0, 0, 0, 1, 0.20964679, 0.23320132, 0)
+mesh = SubResource("SphereMesh_wrkj1")
+surface_material_override/0 = SubResource("StandardMaterial3D_gsg3a")
+
+[node name="feuille_buisson5" type="MeshInstance3D" parent="."]
+transform = Transform3D(0.4513603, 0.89234185, 0, -0.89234185, 0.4513603, 0, 0, 0, 1, 0.36488214, 0.11922076, 0)
+mesh = SubResource("SphereMesh_wrkj1")
+surface_material_override/0 = SubResource("StandardMaterial3D_gsg3a")
