@@ -1,0 +1,30 @@
+[gd_scene load_steps=5 format=3 uid="uid://xytobdjvr4am"]
+
+[ext_resource type="Script" uid="uid://b3bwaq2d2r7un" path="res://Contents/scripts/obstacle_despawn_touch_player.gd" id="1_wy50l"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_c84fy"]
+size = Vector3(1.003418, 0.21826172, 0.49957275)
+
+[sub_resource type="BoxMesh" id="BoxMesh_fmjie"]
+size = Vector3(1, 0.2, 0.5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_okk3e"]
+albedo_color = Color(0.52156866, 0.5058824, 1, 1)
+
+[node name="obstacle_depop" type="StaticBody3D"]
+script = ExtResource("1_wy50l")
+
+[node name="Area3D" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017089844, 0.0012207031, -0.0016174316)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("BoxShape3D_c84fy")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0017089844, -0.0012207031, 0.0016174316)
+mesh = SubResource("BoxMesh_fmjie")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_okk3e")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("BoxShape3D_c84fy")

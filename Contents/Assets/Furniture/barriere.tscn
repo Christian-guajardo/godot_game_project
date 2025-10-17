@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://gyqk6w57oixp"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_3aev6"]
+size = Vector3(0.05, 1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_50xsu"]
+albedo_color = Color(0.40392157, 0.24313726, 0.11372549, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7e3yo"]
+size = Vector3(0.05, 1.5, 0.15)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ojlxs"]
+albedo_color = Color(0.40392157, 0.24313726, 0, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_am0xj"]
+size = Vector3(0.115234375, 2.6895294, 1.500824)
+
+[node name="barriere" type="StaticBody3D"]
+
+[node name="poteau_barriere" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+mesh = SubResource("BoxMesh_3aev6")
+surface_material_override/0 = SubResource("StandardMaterial3D_50xsu")
+
+[node name="poteau_barriere2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, -1.0260437)
+mesh = SubResource("BoxMesh_3aev6")
+surface_material_override/0 = SubResource("StandardMaterial3D_50xsu")
+
+[node name="barreau" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.19575793, 0.9806523, 0, -0.9806523, 0.19575793, 0.062345892, 0.43628937, -0.4504077)
+mesh = SubResource("BoxMesh_7e3yo")
+surface_material_override/0 = SubResource("StandardMaterial3D_ojlxs")
+
+[node name="barreau2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -0.0604039, 0.9981741, 0, -0.9981741, -0.0604039, 0.062345892, 0.8144893, -0.4504077)
+mesh = SubResource("BoxMesh_7e3yo")
+surface_material_override/0 = SubResource("StandardMaterial3D_ojlxs")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.032226563, 0.8447647, -0.44691467)
+shape = SubResource("BoxShape3D_am0xj")

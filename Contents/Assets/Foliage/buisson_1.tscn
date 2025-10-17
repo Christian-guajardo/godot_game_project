@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://flv23fke35rm"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_brnvp"]
-size = Vector3(1.5488892, 0.430542, 1.5836182)
+size = Vector3(1.5488892, 0.430542, 1.5198364)
 
 [sub_resource type="SphereMesh" id="SphereMesh_wrkj1"]
 radius = 0.2
@@ -10,9 +10,10 @@ radius = 0.2
 albedo_color = Color(0.50980395, 0.6901961, 0.105882354, 1)
 
 [node name="buisson_1" type="StaticBody3D"]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 0, 0, 0)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.009857178, 0.6178589, -0.0010375706)
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0.009857178, 0.64974976, -0.0010375693)
 shape = SubResource("BoxShape3D_brnvp")
 
 [node name="feuille_buisson" type="MeshInstance3D" parent="."]
