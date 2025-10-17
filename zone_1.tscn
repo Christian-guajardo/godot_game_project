@@ -1,6 +1,7 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpupadj04ovie"]
+[gd_scene load_steps=16 format=3 uid="uid://bpupadj04ovie"]
 
 [ext_resource type="Script" path="res://Player.gd" id="1_t3o4r"]
+[ext_resource type="Script" path="res://Ball.gd" id="2_47jrk"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_231fi"]
 size = Vector3(10, 1, 5)
@@ -28,6 +29,15 @@ size = Vector3(2, 1, 5)
 [sub_resource type="BoxShape3D" id="BoxShape3D_b5s18"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_rjv73"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_7sqqb"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_k6oky"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_0qhn8"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 4.0
 
 [node name="Zone1" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -92,3 +102,22 @@ metadata/_edit_lock_ = true
 
 [node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
 transform = Transform3D(-4.15117e-08, 0.31323, -0.949677, 1.36917e-08, 0.949677, 0.31323, 1, 1.77636e-15, -4.37114e-08, -1.58091, 1.28093, 0)
+
+[node name="RigidBody3D" type="RigidBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.20079, 1.79042, 2.71045e-07)
+can_sleep = false
+script = ExtResource("2_47jrk")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RigidBody3D"]
+shape = SubResource("SphereShape3D_7sqqb")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="RigidBody3D"]
+mesh = SubResource("SphereMesh_k6oky")
+
+[node name="PinJoint3D" type="PinJoint3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.58954, 0)
+node_b = NodePath("..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="RigidBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.60324, 0)
+mesh = SubResource("CylinderMesh_0qhn8")
