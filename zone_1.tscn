@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bpupadj04ovie"]
+[gd_scene load_steps=14 format=3 uid="uid://bpupadj04ovie"]
 
 [ext_resource type="ArrayMesh" uid="uid://b8roqd48o174e" path="res://PlayerModel/5aeb54505baf2a956b2e68f4fe02bcce.obj" id="2_0j6jw"]
+[ext_resource type="Script" uid="uid://0dmt11ytena0" path="res://camera.gd" id="3_j01f8"]
 [ext_resource type="PackedScene" uid="uid://c6v7uipor3ucf" path="res://PlayerModel/animation/Running.fbx" id="3_pk2om"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_231fi"]
@@ -168,7 +169,15 @@ metadata/_edit_lock_ = true
 
 [node name="Running" parent="CharacterBody3D" instance=ExtResource("3_pk2om")]
 
-[node name="Camera3D" type="Camera3D" parent="."]
+[node name="CameraTarget" type="Marker3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+
+[node name="Node3D" type="Node3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.859313, -0.4476807, -8.127317e-08)
+script = ExtResource("3_j01f8")
+target = NodePath("../CharacterBody3D/CameraTarget")
+
+[node name="Camera3D" type="Camera3D" parent="Node3D"]
 transform = Transform3D(-4.15117e-08, 0.3132301, -0.9496773, 1.36917e-08, 0.9496773, 0.3132301, 1, 1.7763568e-14, -4.371137e-08, -1.58091, 2.41416, 0)
 
-[node name="SpotLight3D" type="SpotLight3D" parent="Camera3D"]
+[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Camera3D"]
