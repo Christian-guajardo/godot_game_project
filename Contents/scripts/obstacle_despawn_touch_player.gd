@@ -1,7 +1,7 @@
 extends StaticBody3D
 
-@export var fade_time: float = 3.0
-@export var disappear_delay: float = 5.0
+@export var fade_time: float = 3.0			# temps pour disparaître/réapparaître
+@export var disappear_delay: float = 2.0  	# temps avant réapparition
 
 @onready var mesh: MeshInstance3D = $Area3D/MeshInstance3D
 @onready var static_collision: CollisionShape3D = $CollisionShape3D
@@ -33,7 +33,7 @@ func _process(delta: float) -> void:
 			elapsed += delta
 			alpha = clamp(1.0 - elapsed / fade_time, 0, 1)
 			_set_alpha(alpha)
-			static_collision.disabled = alpha <= 0  # <-- désactive la collision
+			static_collision.disabled = alpha <= 0
 			if alpha <= 0:
 				state = "waiting"
 				elapsed = 0.0

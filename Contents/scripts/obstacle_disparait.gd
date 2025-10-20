@@ -1,16 +1,15 @@
 extends AnimatableBody3D
 
-@export var fade_time: float = 3.0        # temps pour disparaître/réapparaître
-@export var disappear_delay: float = 5.0  # temps avant réapparition
+@export var fade_time: float = 2.0        # temps pour disparaître/réapparaître
+@export var disappear_delay: float = 4.0  # temps avant réapparition
 
 @onready var mesh: MeshInstance3D = $MeshInstance3D
 @onready var collision: CollisionShape3D = $CollisionShape3D
 
 var elapsed: float = 0.0
-var state := "fading_out" # peut être "fading_out", "waiting", "fading_in"
+var state := "fading_out"
 
 func _ready():
-	# Assurer que le matériau est transparent
 	var mat = mesh.get_active_material(0)
 	if mat:
 		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
@@ -20,7 +19,6 @@ func _ready():
 		mesh.set_surface_override_material(0, mat)
 
 func _physics_process(delta: float) -> void:
-	# --- Logique d'état ---
 	match state:
 		"fading_out":
 			elapsed += delta
