@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpuep25vfxv7n"]
+[gd_scene load_steps=6 format=3 uid="uid://cpuep25vfxv7n"]
 
-[ext_resource type="Script" uid="uid://dso7lrwle0tal" path="res://Contents/scripts/obstacle_disparait.gd" id="1_iyjr2"]
+[ext_resource type="Script" path="res://Contents/scripts/obstacle_disparait.gd" id="1_4s3m1"]
+[ext_resource type="Script" uid="uid://dso7lrwle0tal" path="res://Contents/Scripts/Obstacle/obstacle_disparait.gd" id="2_va5po"]
 
 [sub_resource type="CylinderMesh" id="CylinderMesh_iyjr2"]
 height = 0.3
@@ -12,11 +13,12 @@ albedo_color = Color(0.99999994, 0.15448421, 0.6318174, 1)
 height = 0.3
 
 [node name="obstacle_disparait" type="AnimatableBody3D"]
-script = ExtResource("1_iyjr2")
+script = ExtResource("1_4s3m1")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
 mesh = SubResource("CylinderMesh_iyjr2")
 surface_material_override/0 = SubResource("StandardMaterial3D_iyjr2")
+script = ExtResource("2_va5po")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0017089844, 0.0012207031, -0.0016174316)
