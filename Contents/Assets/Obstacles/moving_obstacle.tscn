@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsyasp8kdi1x6"]
+
+[ext_resource type="Script" uid="uid://co4voirjeqpv4" path="res://Contents/Scripts/Obstacle/moving_obstacle.gd" id="1_ys54a"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_ei167"]
+size = Vector3(1.5, 0.25, 0.4)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vj8mm"]
+size = Vector3(1.4996948, 0.2513733, 0.4008026)
+
+[node name="moving_obstacle" type="AnimatableBody3D"]
+script = ExtResource("1_ys54a")
+
+[node name="pad" type="MeshInstance3D" parent="."]
+mesh = SubResource("BoxMesh_ei167")
+skeleton = NodePath("../../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.002960205, 0.0015716553, 0.001045227)
+shape = SubResource("BoxShape3D_vj8mm")

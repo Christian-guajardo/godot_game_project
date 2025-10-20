@@ -1,0 +1,59 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccbpqkvtwlnqb"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_cuj46"]
+top_radius = 0.17
+bottom_radius = 0.25
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_8nwhd"]
+albedo_color = Color(0.6627451, 0.35686275, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_sr56i"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0chf"]
+albedo_color = Color(0.39215687, 0.5568628, 0, 1)
+
+[sub_resource type="SphereMesh" id="SphereMesh_rjuu0"]
+radius = 0.4
+height = 0.8
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_ui6fx"]
+radius = 0.25146484
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_prncg"]
+radius = 0.83452344
+
+[node name="arbre" type="StaticBody3D"]
+
+[node name="tronc" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CylinderMesh_cuj46")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_8nwhd")
+
+[node name="feuille" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29589993, 2.1523929, 0)
+mesh = SubResource("SphereMesh_sr56i")
+surface_material_override/0 = SubResource("StandardMaterial3D_k0chf")
+
+[node name="feuille2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.13423258, 2.1523929, 0.32549012)
+mesh = SubResource("SphereMesh_sr56i")
+surface_material_override/0 = SubResource("StandardMaterial3D_k0chf")
+
+[node name="feuille3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.06043881, 2.1523929, -0.24089399)
+mesh = SubResource("SphereMesh_sr56i")
+surface_material_override/0 = SubResource("StandardMaterial3D_k0chf")
+
+[node name="top_feuille" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.586342, 0)
+mesh = SubResource("SphereMesh_rjuu0")
+surface_material_override/0 = SubResource("StandardMaterial3D_k0chf")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9915792, 0)
+shape = SubResource("CylinderShape3D_ui6fx")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.290289, 0)
+shape = SubResource("SphereShape3D_prncg")

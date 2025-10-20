@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://bpupadj04ovie"]
 
-[ext_resource type="Script" path="res://Player.gd" id="1_t3o4r"]
+[ext_resource type="Script" uid="uid://diflmds350hpe" path="res://Player.gd" id="1_t3o4r"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_231fi"]
 size = Vector3(10, 1, 5)
@@ -77,7 +77,7 @@ metadata/_edit_lock_ = true
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.756402, 0.0517987, -0.652053, 0.654107, -0.0598994, 0.754026, 0, -0.99686, -0.0791899, -3.60296, 10.5975, 0)
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13323, 0)
 script = ExtResource("1_t3o4r")
 
