@@ -1,8 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://bpupadj04ovie"]
+[gd_scene load_steps=10 format=3 uid="uid://bpupadj04ovie"]
 
-[ext_resource type="ArrayMesh" uid="uid://b8roqd48o174e" path="res://PlayerModel/5aeb54505baf2a956b2e68f4fe02bcce.obj" id="2_0j6jw"]
-[ext_resource type="Script" uid="uid://0dmt11ytena0" path="res://camera.gd" id="3_j01f8"]
-[ext_resource type="PackedScene" uid="uid://c6v7uipor3ucf" path="res://PlayerModel/animation/Running.fbx" id="3_pk2om"]
+[ext_resource type="PackedScene" uid="uid://bxj35a15s3j5a" path="res://player_element.tscn" id="1_c0rng"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_231fi"]
 size = Vector3(10, 1, 5)
@@ -26,83 +24,6 @@ size = Vector3(2, 1, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6x21t"]
 size = Vector3(2, 1, 5)
-
-[sub_resource type="GDScript" id="GDScript_ot0hx"]
-script/source = "extends CharacterBody3D
-
-signal hit
-
-# How fast the player moves in meters per second.
-@export var speed = 1
-# The downward acceleration while in the air, in meters per second squared.
-@export var fall_acceleration = 20
-# Vertical impulse applied to the character upon jumping in meters per second.
-@export var jump_impulse = 5
-# Vertical impulse applied to the character upon bouncing over a mob
-# in meters per second.
-@export var bounce_impulse = 55
-
-var target_velocity = Vector3.ZERO
-
-
-func _physics_process(delta):
-	# We create a local variable to store the input direction
-	var direction = Vector3.ZERO
-	var anim_player = $Running/AnimationPlayer
-
-	
-
-	# We check for each move input and update the direction accordingly
-	if Input.is_action_pressed(\"ui_right\"):
-		direction.x = direction.x + 1
-	if Input.is_action_pressed(\"ui_left\"):
-		direction.x = direction.x - 1
-	if Input.is_action_pressed(\"ui_down\"):
-		# Notice how we are working with the vector's x and z axes.
-		# In 3D, the XZ plane is the ground plane.
-		direction.z = direction.z + 1
-	if Input.is_action_pressed(\"ui_up\"):
-		direction.z = direction.z - 1
-
-	if direction != Vector3.ZERO:
-		direction = direction.normalized()
-		basis = Basis.looking_at(direction)
-		anim_player.play(\"mixamo_com\")  
-		get_node(\"Running/AnimationPlayer\").play(\"mixamo_com\")
-
-		anim_player.speed_scale = 1.5
-	else:
-		
-		anim_player.play(\"mixamo_com\")
-		anim_player.speed_scale = 1.5
-
-	# Ground Velocity
-	target_velocity.x = direction.x * speed
-	target_velocity.z = direction.z * speed
-
-	# Vertical Velocity
-	if not is_on_floor(): # If in the air, fall towards the floor
-		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
-
-	# Jumping.
-	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
-		target_velocity.y = jump_impulse
-
-
-	# Moving the Character
-	velocity = target_velocity
-	move_and_slide()
-
-	
-
-# And this function at the bottom.
-func die():
-	hit.emit()
-	queue_free()
-"
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_b5s18"]
-size = Vector3(0.518829, 1.15442, 1)
 
 [node name="Zone1" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -152,32 +73,4 @@ metadata/_edit_lock_ = true
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.756402, 0.0517987, -0.652053, 0.654107, -0.0598994, 0.754026, 0, -0.99686, -0.0791899, -3.60296, 10.5975, 0)
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13323, 0)
-script = SubResource("GDScript_ot0hx")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0106659, 0.00372314, 2.77556e-16)
-shape = SubResource("BoxShape3D_b5s18")
-metadata/_edit_lock_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
-mesh = ExtResource("2_0j6jw")
-skeleton = NodePath("")
-metadata/_edit_lock_ = true
-
-[node name="Running" parent="CharacterBody3D" instance=ExtResource("3_pk2om")]
-
-[node name="CameraTarget" type="Marker3D" parent="CharacterBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
-
-[node name="Node3D" type="Node3D" parent="." node_paths=PackedStringArray("target")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.859313, -0.4476807, -8.127317e-08)
-script = ExtResource("3_j01f8")
-target = NodePath("../CharacterBody3D/CameraTarget")
-
-[node name="Camera3D" type="Camera3D" parent="Node3D"]
-transform = Transform3D(-4.15117e-08, 0.3132301, -0.9496773, 1.36917e-08, 0.9496773, 0.3132301, 1, 1.7763568e-14, -4.371137e-08, -1.58091, 2.41416, 0)
-
-[node name="SpotLight3D" type="SpotLight3D" parent="Node3D/Camera3D"]
+[node name="PlayerElement" parent="." instance=ExtResource("1_c0rng")]
