@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsyasp8kdi1x6"]
 
-[ext_resource type="Script" uid="uid://co4voirjeqpv4" path="res://Contents/Scripts/Obstacle/moving_obstacle.gd" id="1_ys54a"]
+[ext_resource type="Script" uid="uid://co4voirjeqpv4" path="res://Contents/Scripts/Obstacle/moving_obstacle.gd" id="1_k55cy"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_ei167"]
 size = Vector3(1.5, 0.25, 0.4)
@@ -9,7 +9,7 @@ size = Vector3(1.5, 0.25, 0.4)
 size = Vector3(1.4996948, 0.2513733, 0.4008026)
 
 [node name="moving_obstacle" type="AnimatableBody3D"]
-script = ExtResource("1_ys54a")
+script = ExtResource("1_k55cy")
 
 [node name="pad" type="MeshInstance3D" parent="."]
 mesh = SubResource("BoxMesh_ei167")
