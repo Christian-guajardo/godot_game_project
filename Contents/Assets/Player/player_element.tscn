@@ -1,0 +1,115 @@
+[gd_scene load_steps=6 format=3 uid="uid://bxj35a15s3j5a"]
+
+[ext_resource type="ArrayMesh" uid="uid://b8roqd48o174e" path="res://Contents/Assets/Player/PlayerModel/5aeb54505baf2a956b2e68f4fe02bcce.obj" id="1_ogmru"]
+[ext_resource type="PackedScene" uid="uid://c6v7uipor3ucf" path="res://Contents/Assets/Player/PlayerModel/animation/Running.fbx" id="2_6vtg0"]
+[ext_resource type="Script" uid="uid://dpyu6k01rdg44" path="res://Contents/Assets/Player/camera_rig.gd" id="3_84ppp"]
+
+[sub_resource type="GDScript" id="GDScript_ot0hx"]
+script/source = "extends CharacterBody3D
+
+signal hit
+
+# How fast the player moves in meters per second.
+@export var speed = 2
+# The downward acceleration while in the air, in meters per second squared.
+@export var fall_acceleration = 20
+# Vertical impulse applied to the character upon jumping in meters per second.
+@export var jump_impulse = 8
+# Vertical impulse applied to the character upon bouncing over a mob
+# in meters per second.
+@export var bounce_impulse = 55
+
+var target_velocity = Vector3.ZERO
+
+
+func _physics_process(delta):
+	# We create a local variable to store the input direction
+	var direction = Vector3.ZERO
+	var anim_player = $Running/AnimationPlayer
+
+	
+
+	# We check for each move input and update the direction accordingly
+	if Input.is_action_pressed(\"ui_right\"):
+		direction.x = direction.x + 1
+	if Input.is_action_pressed(\"ui_left\"):
+		direction.x = direction.x - 1
+	if Input.is_action_pressed(\"ui_down\"):
+		# Notice how we are working with the vector's x and z axes.
+		# In 3D, the XZ plane is the ground plane.
+		direction.z = direction.z + 1
+	if Input.is_action_pressed(\"ui_up\"):
+		direction.z = direction.z - 1
+
+	if direction != Vector3.ZERO:
+		direction = direction.normalized()
+		basis = Basis.looking_at(direction)
+		anim_player.play(\"mixamo_com\")  
+		get_node(\"Running/AnimationPlayer\").play(\"mixamo_com\")
+
+		anim_player.speed_scale = 1.5
+	else:
+		
+		anim_player.play(\"mixamo_com\")
+		anim_player.speed_scale = 1.5
+
+	# Ground Velocity
+	target_velocity.x = direction.x * speed
+	target_velocity.z = direction.z * speed
+
+	# Vertical Velocity
+	if not is_on_floor(): # If in the air, fall towards the floor
+		target_velocity.y = target_velocity.y - (fall_acceleration * delta)
+
+	# Jumping.
+	if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+		target_velocity.y = jump_impulse
+
+
+	# Moving the Character
+	velocity = target_velocity
+	move_and_slide()
+
+	
+
+# And this function at the bottom.
+func die():
+	hit.emit()
+	queue_free()
+"
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_ogmru"]
+radius = 0.25390625
+height = 1.2295532
+
+[node name="PlayerElement" type="Node3D"]
+
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." groups=["player"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13323, 0)
+script = SubResource("GDScript_ot0hx")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0106659, 0.020599365, 2.77556e-16)
+shape = SubResource("CapsuleShape3D_ogmru")
+metadata/_edit_lock_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+mesh = ExtResource("1_ogmru")
+skeleton = NodePath("")
+metadata/_edit_lock_ = true
+
+[node name="Running" parent="CharacterBody3D" instance=ExtResource("2_6vtg0")]
+
+[node name="CameraTarget" type="Marker3D" parent="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.5, 0)
+
+[node name="CameraRig" type="Node3D" parent="." node_paths=PackedStringArray("target")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.859313, -0.4476807, -8.127317e-08)
+script = ExtResource("3_84ppp")
+target = NodePath("../CharacterBody3D/CameraTarget")
+
+[node name="Camera3D" type="Camera3D" parent="CameraRig"]
+transform = Transform3D(-4.15117e-08, 0.3132301, -0.9496773, 1.36917e-08, 0.9496773, 0.3132301, 1, 1.7763568e-14, -4.371137e-08, -1.58091, 2.41416, 0)
+
+[node name="SpotLight3D" type="SpotLight3D" parent="CameraRig/Camera3D"]
