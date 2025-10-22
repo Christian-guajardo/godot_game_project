@@ -1,10 +1,15 @@
-[gd_scene load_steps=19 format=3 uid="uid://bpupadj04ovie"]
+[gd_scene load_steps=24 format=3 uid="uid://bpupadj04ovie"]
 
 [ext_resource type="Script" uid="uid://bjovnimqloao2" path="res://Contents/Scripts/Scene/deathArea.gd" id="1_7r4wt"]
 [ext_resource type="PackedScene" uid="uid://bxj35a15s3j5a" path="res://Contents/Assets/Player/player_element.tscn" id="2_fwodr"]
 [ext_resource type="PackedScene" uid="uid://dsyasp8kdi1x6" path="res://Contents/Assets/Obstacles/moving_obstacle.tscn" id="3_ayfjx"]
 [ext_resource type="Texture2D" uid="uid://biqbjysn5w84o" path="res://Contents/Texture/sunflowers_puresky_4k.hdr" id="4_1qsk6"]
 [ext_resource type="PackedScene" uid="uid://cpuep25vfxv7n" path="res://Contents/Assets/Obstacles/obstacle_despawn.tscn" id="4_ubnrs"]
+[ext_resource type="PackedScene" uid="uid://flv23fke35rm" path="res://Contents/Assets/Foliage/buisson_1.tscn" id="6_eygts"]
+[ext_resource type="PackedScene" uid="uid://c0mrhiolr2qc5" path="res://Contents/Assets/Foliage/arbre_fin.tscn" id="7_qndto"]
+[ext_resource type="PackedScene" uid="uid://gyqk6w57oixp" path="res://Contents/Assets/Furniture/barriere.tscn" id="8_5e7r4"]
+[ext_resource type="PackedScene" uid="uid://ccbpqkvtwlnqb" path="res://Contents/Assets/Foliage/arbre_boule.tscn" id="9_niwx7"]
+[ext_resource type="PackedScene" uid="uid://xytobdjvr4am" path="res://Contents/Assets/Obstacles/obstacle_despawn_when_player_touch.tscn" id="10_qndto"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_231fi"]
 size = Vector3(10, 1, 5)
@@ -104,19 +109,48 @@ transform = Transform3D(0.756402, 0.0517987, -0.652053, 0.654107, -0.0598994, 0.
 
 [node name="obstacle_disparait" parent="." instance=ExtResource("4_ubnrs")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.277742, 1.5115439, -0.000972533)
+disappear_delay = 2.0
 
 [node name="PlayerElement" parent="." instance=ExtResource("2_fwodr")]
 
 [node name="moving_obstacle" parent="." instance=ExtResource("3_ayfjx")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.777, -0.027, 0)
-
-[node name="moving_obstacle2" parent="." instance=ExtResource("3_ayfjx")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21.488, 0, 0)
+speed = 1.0
 
 [node name="moving_obstacle3" parent="." instance=ExtResource("3_ayfjx")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.093, 0, 0)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ubnrs")
+
+[node name="buisson_1" parent="." instance=ExtResource("6_eygts")]
+transform = Transform3D(1, 0, -1.0658141e-14, 0, 1, 0, 1.0658141e-14, 0, 1, -0.1863301, 0.5297278, -2.323363)
+
+[node name="arbre_fin" parent="." instance=ExtResource("7_qndto")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.92277384, 0.5, -2.3653736)
+
+[node name="barriere" parent="." instance=ExtResource("8_5e7r4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.428701, 0.5, -2.4982443)
+
+[node name="barriere2" parent="." instance=ExtResource("8_5e7r4")]
+transform = Transform3D(0.67301244, 0, -0.7396311, 0, 1, 0, 0.7396311, 0, 0.67301244, -1.5818683, 0.4720369, -1.4168415)
+
+[node name="barriere3" parent="." instance=ExtResource("8_5e7r4")]
+transform = Transform3D(-0.99983364, 0, 0.018237723, 0, 1, 0, -0.018237723, 0, -0.99983364, -1.7397057, 0.5, -0.80166036)
+
+[node name="barriere4" parent="." instance=ExtResource("8_5e7r4")]
+transform = Transform3D(-0.9338865, 0, -0.35756937, 0, 1, 0, 0.35756937, 0, -0.9338865, -1.6623497, 0.5, 0.54881555)
+
+[node name="barriere5" parent="." instance=ExtResource("8_5e7r4")]
+transform = Transform3D(-0.45014524, 0, -0.89295536, 0, 1, 0, 0.89295536, 0, -0.45014524, -0.90233237, 0.5, 1.8445451)
+
+[node name="arbre" parent="." instance=ExtResource("9_niwx7")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.41152602, 0.5, 2.356895)
+
+[node name="buisson_2" parent="." instance=ExtResource("6_eygts")]
+transform = Transform3D(1, 0, -1.0658141e-14, 0, 1, 0, 1.0658141e-14, 0, 1, 1.3664677, 0.5549289, 2.443774)
+
+[node name="obstacle_despawn_when_player_touch" parent="." instance=ExtResource("10_qndto")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21.408, 0, 0)
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
