@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://bpupadj04ovie"]
+[gd_scene load_steps=16 format=3 uid="uid://bpupadj04ovie"]
 
 [ext_resource type="PackedScene" uid="uid://bxj35a15s3j5a" path="res://Contents/Assets/Player/player_element.tscn" id="2_fwodr"]
 [ext_resource type="PackedScene" uid="uid://dsyasp8kdi1x6" path="res://Contents/Assets/Obstacles/moving_obstacle.tscn" id="3_ayfjx"]
+[ext_resource type="Texture2D" uid="uid://biqbjysn5w84o" path="res://Contents/Texture/sunflowers_puresky_4k.hdr" id="4_1qsk6"]
 [ext_resource type="PackedScene" uid="uid://cpuep25vfxv7n" path="res://Contents/Assets/Obstacles/obstacle_despawn.tscn" id="4_ubnrs"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_231fi"]
@@ -26,6 +27,16 @@ size = Vector3(2, 1, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6x21t"]
 size = Vector3(2, 1, 5)
+
+[sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7r4wt"]
+panorama = ExtResource("4_1qsk6")
+
+[sub_resource type="Sky" id="Sky_71xcg"]
+sky_material = SubResource("PanoramaSkyMaterial_7r4wt")
+
+[sub_resource type="Environment" id="Environment_ubnrs"]
+background_mode = 2
+sky = SubResource("Sky_71xcg")
 
 [node name="Zone1" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -88,3 +99,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21.488
 
 [node name="moving_obstacle3" parent="." instance=ExtResource("3_ayfjx")]
 transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.093, 0, 0)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_ubnrs")
