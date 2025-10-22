@@ -48,3 +48,6 @@ func _set_alpha(alpha: float) -> void:
 		var color = mat.albedo_color
 		color.a = alpha
 		mat.albedo_color = color
+
+
+# Replace with function body.

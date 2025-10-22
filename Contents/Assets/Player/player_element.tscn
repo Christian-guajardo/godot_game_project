@@ -84,7 +84,7 @@ height = 1.2295532
 
 [node name="PlayerElement" type="Node3D"]
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="."]
+[node name="CharacterBody3D" type="CharacterBody3D" parent="." groups=["player"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13323, 0)
 script = SubResource("GDScript_ot0hx")
 

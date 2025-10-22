@@ -1,5 +1,6 @@
-[gd_scene load_steps=16 format=3 uid="uid://bpupadj04ovie"]
+[gd_scene load_steps=19 format=3 uid="uid://bpupadj04ovie"]
 
+[ext_resource type="Script" uid="uid://bjovnimqloao2" path="res://Contents/Scripts/Scene/deathArea.gd" id="1_7r4wt"]
 [ext_resource type="PackedScene" uid="uid://bxj35a15s3j5a" path="res://Contents/Assets/Player/player_element.tscn" id="2_fwodr"]
 [ext_resource type="PackedScene" uid="uid://dsyasp8kdi1x6" path="res://Contents/Assets/Obstacles/moving_obstacle.tscn" id="3_ayfjx"]
 [ext_resource type="Texture2D" uid="uid://biqbjysn5w84o" path="res://Contents/Texture/sunflowers_puresky_4k.hdr" id="4_1qsk6"]
@@ -19,6 +20,15 @@ albedo_color = Color(0.13976, 0.440595, 0.177772, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_mtj75"]
 size = Vector3(1000, 1, 1000)
+
+[sub_resource type="BoxMesh" id="BoxMesh_7r4wt"]
+size = Vector3(1000, 1, 1000)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_71xcg"]
+transparency = 1
+albedo_color = Color(0.2, 0.6, 1, 0.19607843)
+metallic = 0.5
+metallic_specular = 0.2
 
 [sub_resource type="BoxMesh" id="BoxMesh_kgmsj"]
 size = Vector3(2, 1, 5)
@@ -66,10 +76,16 @@ shape = SubResource("BoxShape3D_wusgk")
 metadata/_edit_lock_ = true
 
 [node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_7r4wt")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.4175, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 shape = SubResource("BoxShape3D_mtj75")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+mesh = SubResource("BoxMesh_7r4wt")
+surface_material_override/0 = SubResource("StandardMaterial3D_71xcg")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.533323, 0, 1.3188264e-07)
@@ -102,3 +118,5 @@ transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.0
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ubnrs")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
