@@ -1,6 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://bpupadj04ovie"]
+[gd_scene load_steps=12 format=3 uid="uid://bpupadj04ovie"]
 
-[ext_resource type="Script" uid="uid://diflmds350hpe" path="res://Player.gd" id="1_1qsk6"]
+[ext_resource type="PackedScene" uid="uid://bxj35a15s3j5a" path="res://Contents/Assets/Player/player_element.tscn" id="2_fwodr"]
+[ext_resource type="PackedScene" uid="uid://dsyasp8kdi1x6" path="res://Contents/Assets/Obstacles/moving_obstacle.tscn" id="3_ayfjx"]
 [ext_resource type="PackedScene" uid="uid://cpuep25vfxv7n" path="res://Contents/Assets/Obstacles/obstacle_despawn.tscn" id="4_ubnrs"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_231fi"]
@@ -25,10 +26,6 @@ size = Vector3(2, 1, 5)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_6x21t"]
 size = Vector3(2, 1, 5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_b5s18"]
-
-[sub_resource type="BoxMesh" id="BoxMesh_rjv73"]
 
 [node name="Zone1" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -64,7 +61,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -12.4175, 0)
 shape = SubResource("BoxShape3D_mtj75")
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.5162, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.533323, 0, 1.3188264e-07)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
 mesh = SubResource("BoxMesh_kgmsj")
@@ -78,21 +75,16 @@ metadata/_edit_lock_ = true
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.756402, 0.0517987, -0.652053, 0.654107, -0.0598994, 0.754026, 0, -0.99686, -0.0791899, -3.60296, 10.5975, 0)
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." groups=["player"]]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.13323, 0)
-script = ExtResource("1_1qsk6")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D"]
-shape = SubResource("BoxShape3D_b5s18")
-metadata/_edit_lock_ = true
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="CharacterBody3D"]
-mesh = SubResource("BoxMesh_rjv73")
-skeleton = NodePath("")
-metadata/_edit_lock_ = true
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D"]
-transform = Transform3D(-4.15117e-08, 0.31323, -0.949677, 1.36917e-08, 0.949677, 0.31323, 1, 1.77636e-15, -4.37114e-08, -1.58091, 1.28093, 0)
-
 [node name="obstacle_disparait" parent="." instance=ExtResource("4_ubnrs")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.277742, 1.5115439, -0.000972533)
+
+[node name="PlayerElement" parent="." instance=ExtResource("2_fwodr")]
+
+[node name="moving_obstacle" parent="." instance=ExtResource("3_ayfjx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.777, -0.027, 0)
+
+[node name="moving_obstacle2" parent="." instance=ExtResource("3_ayfjx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21.488, 0, 0)
+
+[node name="moving_obstacle3" parent="." instance=ExtResource("3_ayfjx")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.093, 0, 0)
