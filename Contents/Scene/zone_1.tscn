@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://bpupadj04ovie"]
+[gd_scene load_steps=25 format=3 uid="uid://bpupadj04ovie"]
 
 [ext_resource type="Script" uid="uid://bjovnimqloao2" path="res://Contents/Scripts/Scene/deathArea.gd" id="1_7r4wt"]
 [ext_resource type="PackedScene" uid="uid://bxj35a15s3j5a" path="res://Contents/Assets/Player/player_element.tscn" id="2_fwodr"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://gyqk6w57oixp" path="res://Contents/Assets/Furniture/barriere.tscn" id="8_5e7r4"]
 [ext_resource type="PackedScene" uid="uid://ccbpqkvtwlnqb" path="res://Contents/Assets/Foliage/arbre_boule.tscn" id="9_niwx7"]
 [ext_resource type="PackedScene" uid="uid://xytobdjvr4am" path="res://Contents/Assets/Obstacles/obstacle_despawn_when_player_touch.tscn" id="10_qndto"]
+[ext_resource type="PackedScene" uid="uid://bvo814vwbmnyo" path="res://Contents/Assets/RespawnFlag/respawn_flag.tscn" id="11_5e7r4"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_231fi"]
 size = Vector3(10, 1, 5)
@@ -152,5 +153,8 @@ transform = Transform3D(1, 0, -1.0658141e-14, 0, 1, 0, 1.0658141e-14, 0, 1, 1.36
 
 [node name="obstacle_despawn_when_player_touch" parent="." instance=ExtResource("10_qndto")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21.408, 0, 0)
+
+[node name="respawn_flag" parent="." instance=ExtResource("11_5e7r4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23.540377, 0.87, -1.7887137)
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]

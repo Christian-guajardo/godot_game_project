@@ -1,0 +1,97 @@
+[gd_scene load_steps=14 format=3 uid="uid://bvo814vwbmnyo"]
+
+[ext_resource type="Script" uid="uid://be7pxwidirpl4" path="res://area_3d.gd" id="1_rl806"]
+
+[sub_resource type="CylinderShape3D" id="CylinderShape3D_jcw7t"]
+height = 1.2907715
+radius = 0.34521484
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_c3p6j"]
+top_radius = 0.7
+bottom_radius = 0.7
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_xncml"]
+transparency = 1
+albedo_color = Color(0.2901961, 0.8627451, 0.105882354, 0.1764706)
+
+[sub_resource type="BoxMesh" id="BoxMesh_pcv58"]
+size = Vector3(0.5, 0.1, 0.1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rl806"]
+albedo_color = Color(0.2901961, 0.69411767, 0.25490198, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_0itvt"]
+size = Vector3(0.8, 0.1, 0.1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_rl806"]
+top_radius = 0.1
+bottom_radius = 0.2
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c3p6j"]
+albedo_color = Color(0.3346653, 0.34127578, 0.38563418, 1)
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_xncml"]
+top_radius = 0.05
+bottom_radius = 0.05
+height = 1.0
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pcv58"]
+albedo_color = Color(0.4173522, 0.24330744, 0.19808835, 1)
+
+[sub_resource type="PrismMesh" id="PrismMesh_0itvt"]
+size = Vector3(0.3, 0.5, 0.05)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_jfvlt"]
+albedo_color = Color(0.6627451, 0, 0.08627451, 1)
+
+[node name="respawn_flag" type="StaticBody3D"]
+
+[node name="Area3D" type="Area3D" parent="."]
+script = ExtResource("1_rl806")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3236084, 0)
+shape = SubResource("CylinderShape3D_jcw7t")
+
+[node name="validState" type="StaticBody3D" parent="Area3D"]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0.9758718, 0)
+visible = false
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Area3D/validState"]
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, -1, 0, 1, -4.371139e-08, 0, 0.8107567, 0)
+mesh = SubResource("CylinderMesh_c3p6j")
+surface_material_override/0 = SubResource("StandardMaterial3D_xncml")
+
+[node name="MeshInstance3D4" type="MeshInstance3D" parent="Area3D/validState/MeshInstance3D2"]
+transform = Transform3D(0.7527482, 0.65830857, 0, 2.8775581e-08, -3.2903667e-08, 1, 0.65830857, -0.7527482, -4.371139e-08, -0.20986138, 7.516178e-09, 0.1719501)
+mesh = SubResource("BoxMesh_pcv58")
+skeleton = NodePath("../../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_rl806")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D/validState/MeshInstance3D2"]
+transform = Transform3D(0.65699375, -0.753896, 0, -3.2953842e-08, -2.8718109e-08, 1, -0.753896, -0.65699375, -4.371139e-08, 0.24291775, 4.4678075e-09, 0.10221219)
+mesh = SubResource("BoxMesh_0itvt")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_rl806")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.27010757, 0)
+mesh = SubResource("CylinderMesh_rl806")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_c3p6j")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.31455356, 0)
+mesh = SubResource("CylinderMesh_xncml")
+skeleton = NodePath("../../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_pcv58")
+
+[node name="flag" type="MeshInstance3D" parent="Area3D"]
+transform = Transform3D(-4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 0, 0, 1, 0.2848407, 0.63556594, 0)
+mesh = SubResource("PrismMesh_0itvt")
+skeleton = NodePath("../..")
+surface_material_override/0 = SubResource("StandardMaterial3D_jfvlt")
+
+[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
