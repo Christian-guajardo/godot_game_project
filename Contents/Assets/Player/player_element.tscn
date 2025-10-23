@@ -19,6 +19,8 @@ signal hit
 # in meters per second.
 @export var bounce_impulse = 55
 
+var respawn_position = Vector3(0, 0.5, 0)
+
 var target_velocity = Vector3.ZERO
 
 
