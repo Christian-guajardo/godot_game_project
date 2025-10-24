@@ -1,4 +1,4 @@
-extends StaticBody3D
+extends AnimatableBody3D
 
 @export var fade_time: float = 3.0			# temps pour disparaître/réapparaître
 @export var disappear_delay: float = 2.0  	# temps avant réapparition
@@ -63,3 +63,7 @@ func _set_alpha(a: float) -> void:
 func _on_body_entered(body: Node) -> void:
 	if body.is_in_group("player"):
 		fading = true
+
+
+func _on_area_3d_body_entered(body: Node3D) -> void:
+	pass # Replace with function body.
