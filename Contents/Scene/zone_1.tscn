@@ -244,4 +244,42 @@ metadata/_edit_lock_ = true
 shape = SubResource("BoxShape3D_6x21t")
 metadata/_edit_lock_ = true
 
+[node name="obstacle_despawn_when_player_touch8" parent="." instance=ExtResource("10_qndto")]
+transform = Transform3D(1, 0, -1.748456e-07, 0, 1, 0, 1.748456e-07, 0, 1, 46.486794, 4.498591, 2.835469e-07)
+fade_time = 1.0
+disappear_delay = 1.0
+
+[node name="moving_obstacle2" parent="." instance=ExtResource("3_ayfjx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 48.23176, 4.306, 8.0983057e-07)
+speed = 1.0
+
+[node name="moving_obstacle4" parent="." instance=ExtResource("3_ayfjx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 49.786068, 4.306, 8.7777164e-07)
+
+[node name="moving_obstacle5" parent="." instance=ExtResource("3_ayfjx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 53.320213, 4.306, 1.0322541e-06)
+speed = 1.0
+
+[node name="obstacle_despawn_when_player_touch9" parent="." instance=ExtResource("10_qndto")]
+transform = Transform3D(1, 0, -1.748456e-07, 0, 1, 0, 1.748456e-07, 0, 1, 51.729298, 4.498591, 5.127041e-07)
+fade_time = 1.0
+disappear_delay = 1.0
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.28241, 3.5976796, 1.6071024e-06)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D6"]
+mesh = SubResource("BoxMesh_kgmsj")
+surface_material_override/0 = SubResource("StandardMaterial3D_tr7x5")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D6"]
+shape = SubResource("BoxShape3D_6x21t")
+metadata/_edit_lock_ = true
+
+[node name="obstacle_despawn_when_player_touch10" parent="." instance=ExtResource("10_qndto")]
+transform = Transform3D(1, 0, -1.748456e-07, 0, 1, 0, 1.748456e-07, 0, 1, 54.959995, 4.498591, 6.5392226e-07)
+fade_time = 1.0
+disappear_delay = 1.0
+
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
