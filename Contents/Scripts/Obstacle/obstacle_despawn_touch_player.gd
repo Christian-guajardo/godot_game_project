@@ -15,11 +15,13 @@ var state := "idle"
 func _ready():
 	var mat = mesh.get_active_material(0)
 	if mat:
+		mat = mat.duplicate()
+		mesh.set_surface_override_material(0, mat)
+		
 		mat.transparency = BaseMaterial3D.TRANSPARENCY_ALPHA
 		var color = mat.albedo_color
 		color.a = alpha
 		mat.albedo_color = color
-		mesh.set_surface_override_material(0, mat)
 
 	area.connect("body_entered", Callable(self, "_on_body_entered"))
 
