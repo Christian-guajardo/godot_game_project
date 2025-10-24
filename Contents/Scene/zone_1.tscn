@@ -90,7 +90,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 shape = SubResource("BoxShape3D_mtj75")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13825607, -0.86877537, 0.087087624)
 mesh = SubResource("BoxMesh_7r4wt")
 surface_material_override/0 = SubResource("StandardMaterial3D_71xcg")
 
@@ -210,6 +210,76 @@ shape = SubResource("BoxShape3D_6x21t")
 metadata/_edit_lock_ = true
 
 [node name="respawn_flag2" parent="." instance=ExtResource("11_5e7r4")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 33.700718, 5.143541, 1.9573965)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 44.53146, 4.4153895, 1.957397)
+
+[node name="obstacle_disparait2" parent="." instance=ExtResource("4_ubnrs")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 36.26756, 5.041, -2.0957032e-08)
+fade_time = 1.0
+disappear_delay = 1.0
+
+[node name="obstacle_disparait3" parent="." instance=ExtResource("4_ubnrs")]
+transform = Transform3D(1.311342e-07, 0, 1, 0, 1, 0, -1, 0, 1.311342e-07, 40.37234, 4.387, -1.7119874e-08)
+fade_time = 1.0
+disappear_delay = 1.0
+
+[node name="obstacle_despawn_when_player_touch6" parent="." instance=ExtResource("10_qndto")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 38.34868, 4.847297, 4.6179684e-07)
+fade_time = 1.0
+disappear_delay = 1.0
+
+[node name="obstacle_despawn_when_player_touch7" parent="." instance=ExtResource("10_qndto")]
+transform = Transform3D(1, 0, -1.748456e-07, 0, 1, 0, 1.748456e-07, 0, 1, 42.254307, 4.498591, 9.8538976e-08)
+fade_time = 1.0
+disappear_delay = 1.0
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.4967, 3.539651, 1.0482213e-06)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D5"]
+mesh = SubResource("BoxMesh_kgmsj")
+surface_material_override/0 = SubResource("StandardMaterial3D_tr7x5")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5"]
+shape = SubResource("BoxShape3D_6x21t")
+metadata/_edit_lock_ = true
+
+[node name="obstacle_despawn_when_player_touch8" parent="." instance=ExtResource("10_qndto")]
+transform = Transform3D(1, 0, -1.748456e-07, 0, 1, 0, 1.748456e-07, 0, 1, 46.486794, 4.498591, 2.835469e-07)
+fade_time = 1.0
+disappear_delay = 1.0
+
+[node name="moving_obstacle2" parent="." instance=ExtResource("3_ayfjx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 48.23176, 4.306, 8.0983057e-07)
+speed = 1.0
+
+[node name="moving_obstacle4" parent="." instance=ExtResource("3_ayfjx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 49.786068, 4.306, 8.7777164e-07)
+
+[node name="moving_obstacle5" parent="." instance=ExtResource("3_ayfjx")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 53.320213, 4.306, 1.0322541e-06)
+speed = 1.0
+
+[node name="obstacle_despawn_when_player_touch9" parent="." instance=ExtResource("10_qndto")]
+transform = Transform3D(1, 0, -1.748456e-07, 0, 1, 0, 1.748456e-07, 0, 1, 51.729298, 4.498591, 5.127041e-07)
+fade_time = 1.0
+disappear_delay = 1.0
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.28241, 3.5976796, 1.6071024e-06)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D6"]
+mesh = SubResource("BoxMesh_kgmsj")
+surface_material_override/0 = SubResource("StandardMaterial3D_tr7x5")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D6"]
+shape = SubResource("BoxShape3D_6x21t")
+metadata/_edit_lock_ = true
+
+[node name="obstacle_despawn_when_player_touch10" parent="." instance=ExtResource("10_qndto")]
+transform = Transform3D(1, 0, -1.748456e-07, 0, 1, 0, 1.748456e-07, 0, 1, 54.959995, 4.498591, 6.5392226e-07)
+fade_time = 1.0
+disappear_delay = 1.0
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
