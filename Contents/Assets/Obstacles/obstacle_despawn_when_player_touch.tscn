@@ -15,7 +15,7 @@ albedo_color = Color(0.52156866, 0.5058824, 1, 1)
 [sub_resource type="CylinderShape3D" id="CylinderShape3D_hsi2r"]
 height = 0.3
 
-[node name="obstacle_despawn_when_player_touch" type="StaticBody3D"]
+[node name="obstacle_despawn_when_player_touch" type="AnimatableBody3D"]
 script = ExtResource("2_52xwv")
 
 [node name="Area3D" type="Area3D" parent="."]
@@ -33,3 +33,5 @@ surface_material_override/0 = SubResource("StandardMaterial3D_okk3e")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 shape = SubResource("CylinderShape3D_hsi2r")
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_area_3d_body_entered"]

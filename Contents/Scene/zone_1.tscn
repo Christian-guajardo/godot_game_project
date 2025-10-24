@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bpupadj04ovie"]
+[gd_scene load_steps=27 format=3 uid="uid://bpupadj04ovie"]
 
 [ext_resource type="Script" uid="uid://bjovnimqloao2" path="res://Contents/Scripts/Scene/deathArea.gd" id="1_7r4wt"]
 [ext_resource type="PackedScene" uid="uid://bxj35a15s3j5a" path="res://Contents/Assets/Player/player_element.tscn" id="2_fwodr"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://xytobdjvr4am" path="res://Contents/Assets/Obstacles/obstacle_despawn_when_player_touch.tscn" id="10_qndto"]
 [ext_resource type="PackedScene" uid="uid://bvo814vwbmnyo" path="res://Contents/Assets/RespawnFlag/respawn_flag.tscn" id="11_5e7r4"]
 [ext_resource type="PackedScene" uid="uid://cwt5fwhdh04if" path="res://Contents/Assets/Foliage/buisson_2.tscn" id="12_niwx7"]
+[ext_resource type="PackedScene" uid="uid://kryba0xois34" path="res://Contents/Assets/Obstacles/obstacle_fall_when_player_touch.tscn" id="13_qset5"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_231fi"]
 size = Vector3(10, 1, 5)
@@ -161,7 +162,6 @@ transform = Transform3D(1, 0, -1.0658141e-14, 0, 1, 0, 1.0658141e-14, 0, 1, 1.36
 
 [node name="obstacle_despawn_when_player_touch" parent="." instance=ExtResource("10_qndto")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21.408, 0, 0)
-fade_time = 2.0
 
 [node name="respawn_flag" parent="." instance=ExtResource("11_5e7r4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23.540377, 0.87, -1.7887137)
@@ -169,7 +169,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23.540
 [node name="obstacle_despawn_when_player_touch2" parent="." instance=ExtResource("10_qndto")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.93545, 1.4182057, 8.674306e-08)
 fade_time = 1.0
-disappear_delay = 1.0
 
 [node name="obstacle_despawn_when_player_touch3" parent="." instance=ExtResource("10_qndto")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 27.469606, 2.4399176, 7.617177e-08)
@@ -178,12 +177,10 @@ fade_time = 1.0
 [node name="obstacle_despawn_when_player_touch4" parent="." instance=ExtResource("10_qndto")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 28.609995, 3.2048988, -1.4845395)
 fade_time = 1.0
-disappear_delay = 3.0
 
 [node name="obstacle_despawn_when_player_touch5" parent="." instance=ExtResource("10_qndto")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 29.648268, 4.031297, 8.1489816e-08)
 fade_time = 1.0
-disappear_delay = 1.0
 
 [node name="buisson_3" parent="." instance=ExtResource("12_niwx7")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.886776, 0.94089246, -2.2424438)
@@ -211,5 +208,8 @@ metadata/_edit_lock_ = true
 
 [node name="respawn_flag2" parent="." instance=ExtResource("11_5e7r4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 33.700718, 5.143541, 1.9573965)
+
+[node name="obstacle_fall_when_player_touch" parent="." instance=ExtResource("13_qset5")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.3300989, 0.75, 4.1014805)
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
