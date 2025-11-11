@@ -1,11 +1,11 @@
-[gd_scene load_steps=27 format=3 uid="uid://bpupadj04ovie"]
+[gd_scene load_steps=31 format=3 uid="uid://bpupadj04ovie"]
 
 [ext_resource type="Script" uid="uid://bjovnimqloao2" path="res://Contents/Scripts/Scene/deathArea.gd" id="1_7r4wt"]
 [ext_resource type="PackedScene" uid="uid://bxj35a15s3j5a" path="res://Contents/Assets/Player/player_element.tscn" id="2_fwodr"]
 [ext_resource type="PackedScene" uid="uid://dsyasp8kdi1x6" path="res://Contents/Assets/Obstacles/moving_obstacle.tscn" id="3_ayfjx"]
-[ext_resource type="Texture2D" uid="uid://biqbjysn5w84o" path="res://Contents/Texture/sunflowers_puresky_4k.hdr" id="4_1qsk6"]
 [ext_resource type="PackedScene" uid="uid://cpuep25vfxv7n" path="res://Contents/Assets/Obstacles/obstacle_despawn.tscn" id="4_ubnrs"]
 [ext_resource type="PackedScene" uid="uid://flv23fke35rm" path="res://Contents/Assets/Foliage/buisson_1.tscn" id="6_eygts"]
+[ext_resource type="Texture2D" uid="uid://da2hswjci1p0e" path="res://Contents/Texture/skybox_cartoon.hdr" id="6_qset5"]
 [ext_resource type="PackedScene" uid="uid://c0mrhiolr2qc5" path="res://Contents/Assets/Foliage/arbre_fin.tscn" id="7_qndto"]
 [ext_resource type="PackedScene" uid="uid://gyqk6w57oixp" path="res://Contents/Assets/Furniture/barriere.tscn" id="8_5e7r4"]
 [ext_resource type="PackedScene" uid="uid://ccbpqkvtwlnqb" path="res://Contents/Assets/Foliage/arbre_boule.tscn" id="9_niwx7"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://bvo814vwbmnyo" path="res://Contents/Assets/RespawnFlag/respawn_flag.tscn" id="11_5e7r4"]
 [ext_resource type="PackedScene" uid="uid://cwt5fwhdh04if" path="res://Contents/Assets/Foliage/buisson_2.tscn" id="12_niwx7"]
 [ext_resource type="PackedScene" uid="uid://kryba0xois34" path="res://Contents/Assets/Obstacles/obstacle_fall_when_player_touch.tscn" id="13_qset5"]
+[ext_resource type="PackedScene" uid="uid://cpgwkxd6cfd5u" path="res://Contents/Assets/teleporter_godot.tscn" id="14_uiixc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_231fi"]
 size = Vector3(10, 1, 5)
@@ -47,7 +48,7 @@ size = Vector3(2, 1, 5)
 size = Vector3(2, 1, 5)
 
 [sub_resource type="PanoramaSkyMaterial" id="PanoramaSkyMaterial_7r4wt"]
-panorama = ExtResource("4_1qsk6")
+panorama = ExtResource("6_qset5")
 
 [sub_resource type="Sky" id="Sky_71xcg"]
 sky_material = SubResource("PanoramaSkyMaterial_7r4wt")
@@ -55,6 +56,15 @@ sky_material = SubResource("PanoramaSkyMaterial_7r4wt")
 [sub_resource type="Environment" id="Environment_ubnrs"]
 background_mode = 2
 sky = SubResource("Sky_71xcg")
+
+[sub_resource type="BoxMesh" id="BoxMesh_uiixc"]
+size = Vector3(10, 1, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_s1er4"]
+albedo_color = Color(0, 0.5058824, 0.12941177, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uiixc"]
+size = Vector3(9.972778, 1, 5)
 
 [node name="Zone1" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
@@ -91,7 +101,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 shape = SubResource("BoxShape3D_mtj75")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13825607, -0.86877537, 0.087087624)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.13008022, -0.8542509, 0.08133053)
 mesh = SubResource("BoxMesh_7r4wt")
 surface_material_override/0 = SubResource("StandardMaterial3D_71xcg")
 
@@ -100,6 +110,9 @@ transform = Transform3D(0.94111115, 0, 0.3380974, 0, 1, 0, -0.3380974, 0, 0.9411
 
 [node name="moving_obstacle" parent="Area3D" instance=ExtResource("3_ayfjx")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 31.301958, 4.306, 6.980531e-08)
+
+[node name="buisson_2" parent="Area3D" instance=ExtResource("6_eygts")]
+transform = Transform3D(1, 0, -1.0658141e-14, 0, 1, 0, 1.0658141e-14, 0, 1, 2.0837314, 0.58393383, 90.896515)
 
 [node name="StaticBody3D3" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.533323, 0, 1.3188264e-07)
@@ -114,7 +127,8 @@ shape = SubResource("BoxShape3D_6x21t")
 metadata/_edit_lock_ = true
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
-transform = Transform3D(0.756402, 0.0517987, -0.652053, 0.654107, -0.0598994, 0.754026, 0, -0.99686, -0.0791899, -3.60296, 10.5975, 0)
+transform = Transform3D(-0.07478284, 0.91288555, 0.4013072, 0.80534035, -0.18203843, 0.5641711, 0.58807695, 0.36537918, -0.72157025, 14.738268, 3.1494303, 0.16193835)
+shadow_enabled = true
 
 [node name="obstacle_disparait" parent="." instance=ExtResource("4_ubnrs")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.277742, 1.5115439, -0.000972533)
@@ -280,6 +294,60 @@ fade_time = 1.0
 disappear_delay = 1.0
 
 [node name="obstacle_fall_when_player_touch" parent="." instance=ExtResource("13_qset5")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.3300989, 0.75, 4.1014805)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.3300989, 0.94342613, 3.9437702)
+
+[node name="Parcours_2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, 0, 88.67971)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Parcours_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.516636, 0, 0)
+mesh = SubResource("BoxMesh_uiixc")
+surface_material_override/0 = SubResource("StandardMaterial3D_s1er4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Parcours_2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.520153, 0, 7.6293945e-06)
+shape = SubResource("BoxShape3D_uiixc")
+
+[node name="barriere2" parent="Parcours_2" instance=ExtResource("8_5e7r4")]
+transform = Transform3D(0.99999964, 0, -0.0008726557, 0, 1, 0, 0.0008726557, 0, 0.99999964, -62.475742, 0.5, 1.9029999)
+
+[node name="barriere3" parent="Parcours_2" instance=ExtResource("8_5e7r4")]
+transform = Transform3D(-0.9967579, 0, 0.08045986, 0, 1, 0, -0.08045986, 0, -0.9967579, -62.36073, 0.5, -0.56217957)
+
+[node name="barriere5" parent="Parcours_2" instance=ExtResource("8_5e7r4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -62.2178, 0.5, 2.3290787)
+
+[node name="buisson_1" parent="Parcours_2" instance=ExtResource("6_eygts")]
+transform = Transform3D(1, 0, -1.0658141e-14, 0, 1, 0, 1.0658141e-14, 0, 1, -60.569916, 0.3845327, -2.2830353)
+
+[node name="buisson_2" parent="Parcours_2" instance=ExtResource("12_niwx7")]
+transform = Transform3D(0.99999803, 0, 0.0019896412, 0, 1, 0, -0.0019896412, 0, 0.99999803, -62.24037, 0.9089953, -1.3608704)
+
+[node name="arbre_fin" parent="Parcours_2" instance=ExtResource("7_qndto")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -59.587, 0.5, -2.2437363)
+
+[node name="arbre" parent="Parcours_2" instance=ExtResource("9_niwx7")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -56.833313, 0.5, 2.1877365)
+
+[node name="buisson_3" parent="Parcours_2" instance=ExtResource("12_niwx7")]
+transform = Transform3D(-0.9993487, 0, -0.03608555, 0, 1, 0, 0.03608555, 0, -0.9993487, -52.780453, 0.91102016, -1.8703308)
+
+[node name="Teleporter_1" parent="." node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
+transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 57.269455, 4.036008, -1.5964562)
+teleport_destination = NodePath("../Tp_player_1")
+
+[node name="Teleporter_decoy_1" parent="." instance=ExtResource("14_uiixc")]
+transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, -3.0783997, 0.4369254, 88.56469)
+teleport_enabled = false
+
+[node name="Tp_player_1" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.0698776, 1.4197545, 88.60773)
+
+[node name="Teleporter" parent="." node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4536989, 0.44424152, -0.3185072)
+teleport_destination = NodePath("../Tp_player_1")
+
+[node name="buisson_4" parent="." instance=ExtResource("12_niwx7")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -3.9099655, 0.93015575, 86.43781)
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
