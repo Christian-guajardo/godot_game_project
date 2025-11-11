@@ -1,0 +1,106 @@
+[gd_scene load_steps=8 format=3 uid="uid://cpgwkxd6cfd5u"]
+
+[ext_resource type="Script" uid="uid://hjwe0oacc7nw" path="res://Contents/Scripts/Scene/teleporter_script.gd" id="1_xt1pa"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_base"]
+top_radius = 1.5
+bottom_radius = 1.5
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_base"]
+albedo_color = Color(0.2, 0.3, 0.8, 1)
+metallic = 0.8
+roughness = 0.3
+emission_enabled = true
+emission = Color(0.3, 0.5, 1, 1)
+emission_energy_multiplier = 0.5
+
+[sub_resource type="TorusMesh" id="TorusMesh_ring1"]
+inner_radius = 0.8
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ring"]
+transparency = 1
+albedo_color = Color(0.4, 0.7, 1, 0.6)
+emission_enabled = true
+emission = Color(0.5, 0.8, 1, 1)
+emission_energy_multiplier = 2.0
+
+[sub_resource type="TorusMesh" id="TorusMesh_ring2"]
+outer_radius = 0.65
+
+[sub_resource type="SphereMesh" id="SphereMesh_particle"]
+radius = 0.05
+height = 0.1
+
+[node name="Teleporter" type="Node3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.8076215, 0)
+script = ExtResource("1_xt1pa")
+
+[node name="Base" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.1, 0)
+mesh = SubResource("CylinderMesh_base")
+surface_material_override/0 = SubResource("StandardMaterial3D_base")
+
+[node name="Ring1" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.39841443, 0)
+mesh = SubResource("TorusMesh_ring1")
+surface_material_override/0 = SubResource("StandardMaterial3D_ring")
+
+[node name="Ring2" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7197982, 0)
+mesh = SubResource("TorusMesh_ring2")
+surface_material_override/0 = SubResource("StandardMaterial3D_ring")
+
+[node name="Ring3" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.0864601, 0)
+mesh = SubResource("TorusMesh_ring2")
+surface_material_override/0 = SubResource("StandardMaterial3D_ring")
+
+[node name="CenterLight" type="OmniLight3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5488367, 0)
+light_color = Color(0.5, 0.8, 1, 1)
+light_energy = 2.0
+omni_range = 3.0
+
+[node name="Particles" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.62034917, 0)
+
+[node name="Particle1" type="MeshInstance3D" parent="Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.5, 0.3, 0)
+mesh = SubResource("SphereMesh_particle")
+surface_material_override/0 = SubResource("StandardMaterial3D_ring")
+
+[node name="Particle2" type="MeshInstance3D" parent="Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.5, 0.4, 0.3)
+mesh = SubResource("SphereMesh_particle")
+surface_material_override/0 = SubResource("StandardMaterial3D_ring")
+
+[node name="Particle3" type="MeshInstance3D" parent="Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.3, 0.5, -0.5)
+mesh = SubResource("SphereMesh_particle")
+surface_material_override/0 = SubResource("StandardMaterial3D_ring")
+
+[node name="Particle4" type="MeshInstance3D" parent="Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3, 0.35, 0.5)
+mesh = SubResource("SphereMesh_particle")
+surface_material_override/0 = SubResource("StandardMaterial3D_ring")
+
+[node name="Particle5" type="MeshInstance3D" parent="Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.7, 0.45, 0.2)
+mesh = SubResource("SphereMesh_particle")
+surface_material_override/0 = SubResource("StandardMaterial3D_ring")
+
+[node name="Particle6" type="MeshInstance3D" parent="Particles"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.38, -0.4)
+mesh = SubResource("SphereMesh_particle")
+surface_material_override/0 = SubResource("StandardMaterial3D_ring")
+
+[node name="Area3D" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "teleport_idle"
+
+[connection signal="body_entered" from="Area3D" to="." method="_on_body_entered"]
