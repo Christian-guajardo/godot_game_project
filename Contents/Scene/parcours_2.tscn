@@ -58,69 +58,69 @@ size = Vector3(1, 0.9737549, 3.9638367)
 [node name="Parcours_2" type="StaticBody3D"]
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.516636, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6043873, -1.0781012, 0)
 mesh = SubResource("BoxMesh_uiixc")
 surface_material_override/0 = SubResource("StandardMaterial3D_s1er4")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -57.520153, 0, 7.6293945e-06)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.6008701, -1.0781012, 7.6293945e-06)
 shape = SubResource("BoxShape3D_uiixc")
 
 [node name="barriere2" parent="." instance=ExtResource("1_0jnpw")]
-transform = Transform3D(0.99999964, 0, -0.0008726557, 0, 1, 0, 0.0008726557, 0, 0.99999964, -62.475742, 0.5, 1.9029999)
+transform = Transform3D(0.99999964, 0, -0.0008726557, 0, 1, 0, 0.0008726557, 0, 0.99999964, -1.3547192, -0.57810116, 1.9029999)
 
 [node name="barriere3" parent="." instance=ExtResource("1_0jnpw")]
-transform = Transform3D(-0.9967579, 0, 0.08045986, 0, 1, 0, -0.08045986, 0, -0.9967579, -62.36073, 0.5, -0.56217957)
+transform = Transform3D(-0.9967579, 0, 0.08045986, 0, 1, 0, -0.08045986, 0, -0.9967579, -1.239706, -0.57810116, -0.56217957)
 
 [node name="barriere5" parent="." instance=ExtResource("1_0jnpw")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -62.2178, 0.5, 2.3290787)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.096777, -0.57810116, 2.3290787)
 
 [node name="buisson_1" parent="." instance=ExtResource("2_rqgx4")]
-transform = Transform3D(1, 0, -1.0658141e-14, 0, 1, 0, 1.0658141e-14, 0, 1, -60.569916, 0.3845327, -2.2830353)
+transform = Transform3D(1, 0, -1.0658141e-14, 0, 1, 0, 1.0658141e-14, 0, 1, 0.5511074, -0.69356847, -2.2830353)
 
 [node name="buisson_2" parent="." instance=ExtResource("3_l1dmt")]
-transform = Transform3D(0.99999803, 0, 0.0019896412, 0, 1, 0, -0.0019896412, 0, 0.99999803, -62.24037, 0.9089953, -1.3608704)
+transform = Transform3D(0.99999803, 0, 0.0019896412, 0, 1, 0, -0.0019896412, 0, 0.99999803, -1.1193485, -0.16910589, -1.3608704)
 
 [node name="arbre_fin" parent="." instance=ExtResource("4_lxxyh")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -59.587, 0.5, -2.2437363)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.5340214, -0.57810116, -2.2437363)
 
 [node name="arbre" parent="." instance=ExtResource("5_13d2d")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -56.833313, 0.5, 2.1877365)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.28771, -0.57810116, 2.1877365)
 
 [node name="buisson_3" parent="." instance=ExtResource("3_l1dmt")]
-transform = Transform3D(-0.9993487, 0, -0.03608555, 0, 1, 0, 0.03608555, 0, -0.9993487, -52.780453, 0.91102016, -1.8703308)
+transform = Transform3D(-0.9993487, 0, -0.03608555, 0, 1, 0, 0.03608555, 0, -0.9993487, 8.34057, -0.167081, -1.8703308)
 
 [node name="Teleporter_decoy_1" parent="." instance=ExtResource("6_n1o3j")]
-transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, -61.0784, 0.4369254, -0.11502075)
+transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0.04262352, -0.64117575, -0.11502075)
 teleport_enabled = false
 
 [node name="Tp_player_1" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -61.069878, 0.5, -0.07198334)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.051145554, -0.57810116, -0.07198334)
 
 [node name="buisson_4" parent="." instance=ExtResource("3_l1dmt")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -61.909966, 0.93015575, -2.2418976)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.78894234, -0.1479454, -2.2418976)
 
 [node name="obstacle_fall_when_player_touch" parent="." instance=ExtResource("7_t1cub")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -51.265, 0.943, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9.856024, -0.13510114, 0)
 delay_before_fall = 0.25
 fall_distance = 10.0
 
 [node name="obstacle_despawn_when_player_touch11" parent="." instance=ExtResource("8_w5puv")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -49.546, 1.811, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.575022, 0.73289883, 0)
 fade_time = 0.25
 
 [node name="obstacle_fall_when_player_touch2" parent="." instance=ExtResource("7_t1cub")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -47.768, 2.698, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 13.353022, 1.6198988, 0)
 fall_distance = 10.0
 
 [node name="buisson_5" parent="." instance=ExtResource("2_rqgx4")]
-transform = Transform3D(1, 0, -1.0658141e-14, 0, 1, 0, 1.0658141e-14, 0, 1, -55.916267, 0.58393383, 2.2168045)
+transform = Transform3D(1, 0, -1.0658141e-14, 0, 1, 0, 1.0658141e-14, 0, 1, 5.204756, -0.49416733, 2.2168045)
 
 [node name="obstacle_fall_when_player_touch3" parent="." instance=ExtResource("7_t1cub")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -44.276, 4.487, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.845022, 3.4088988, 0)
 
 [node name="wall" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -42.93444, 4.7407775, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.186583, 3.6626763, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="wall"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21263838, 0)
@@ -131,10 +131,10 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115356445, 2.2690315, 0.0
 shape = SubResource("BoxShape3D_s1er4")
 
 [node name="moving_obstacle6" parent="." instance=ExtResource("9_xo38a")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -42.9263, 0.4339596, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.194723, -0.64414155, 0)
 
 [node name="Repos" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -40.704247, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.416777, -1.0781012, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Repos"]
 mesh = SubResource("BoxMesh_kgmsj")
@@ -146,13 +146,13 @@ shape = SubResource("BoxShape3D_6x21t")
 metadata/_edit_lock_ = true
 
 [node name="respawn_flag3" parent="." instance=ExtResource("10_8laup")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -40.646225, 0.87010753, -2.0268326)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 20.474798, -0.20799363, -2.0268326)
 
 [node name="moving_obstacle7" parent="." instance=ExtResource("9_xo38a")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38.601746, 0.07329869, -0.08293915)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.519278, -1.0048025, -0.08293915)
 
 [node name="wall2" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -37.244164, 1.2315361, -1.413681)
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 23.87686, 0.15343499, -1.413681)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="wall2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21263838, 0)
@@ -164,7 +164,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115356445, 1.1306343, 0.0
 shape = SubResource("BoxShape3D_s1er4")
 
 [node name="wall3" type="StaticBody3D" parent="."]
-transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, -37.244, 1.232, 1.2101746)
+transform = Transform3D(-4.3711392e-08, 0, 1, 0, 1, 0, -1, 0, -4.3711392e-08, 23.877024, 0.15389884, 1.2101746)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="wall3"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21263838, 0)
@@ -177,16 +177,16 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115356445, 1.5092391, 0.0
 shape = SubResource("BoxShape3D_s1er4")
 
 [node name="moving_obstacle" parent="." instance=ExtResource("9_xo38a")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -37.431007, 0.11349481, -0.061790466)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23.690016, -0.96460634, -0.061790466)
 speed = 2.0
 
 [node name="moving_obstacle2" parent="." instance=ExtResource("9_xo38a")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -38.587486, 1.1673516, -0.09883118)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 22.533537, 0.089250445, -0.09883118)
 distance = 3.0
 speed = 0.5
 
 [node name="wall4" type="StaticBody3D" parent="."]
-transform = Transform3D(-0.99997133, 0, 0.0075746924, 0, 1, 0, -0.0075746924, 0, -0.99997133, -38.992836, 1.2315361, -3.5923004)
+transform = Transform3D(-0.99997133, 0, 0.0075746924, 0, 1, 0, -0.0075746924, 0, -0.99997133, 22.128187, 0.15343499, -3.5923004)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="wall4"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21263838, 0)
@@ -198,7 +198,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115356445, 0.21723938, 0.
 shape = SubResource("BoxShape3D_s1er4")
 
 [node name="wall5" type="StaticBody3D" parent="."]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, -39.26844, 1.2315361, 3.0093994)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 21.852583, 0.15343499, 3.0093994)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="wall5"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.28761482, 0.21263838, -0.30015564)
@@ -210,11 +210,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115356445, 0.21723938, 0.
 shape = SubResource("BoxShape3D_s1er4")
 
 [node name="obstacle_fall_when_player_touch4" parent="." instance=ExtResource("7_t1cub")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -36.160442, 0.82068515, -0.09146118)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 24.96058, -0.257416, -0.09146118)
 fall_duration = 0.5
 
 [node name="Repos2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -33.65303, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.467993, -1.0781012, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Repos2"]
 mesh = SubResource("BoxMesh_kgmsj")
@@ -226,10 +226,10 @@ shape = SubResource("BoxShape3D_6x21t")
 metadata/_edit_lock_ = true
 
 [node name="respawn_flag" parent="." instance=ExtResource("10_8laup")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -33.673172, 0.87010753, 1.8888092)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 27.447851, -0.20799363, 1.8888092)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -32.131905, -4.463893, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 28.989119, -5.541994, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.4627514, 0)
@@ -239,7 +239,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_to2fn")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
 
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -31.078657, 4.536559, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.042366, 3.458458, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.059661865, -4.5303288, 0)
@@ -251,15 +251,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.5377893, 0.02192688)
 shape = SubResource("BoxShape3D_00ig2")
 
 [node name="obstacle_fall_when_player_touch5" parent="." instance=ExtResource("7_t1cub")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -25.918217, 2.27459, -0.043647766)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 35.202805, 1.1964889, -0.043647766)
 fall_distance = 8.0
 
 [node name="obstacle_despawn_when_player_touch" parent="." instance=ExtResource("8_w5puv")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -27.645672, 1.5747114, -1.3998032)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 33.47535, 0.49661028, -1.3998032)
 fade_time = 0.5
 
 [node name="Repos3" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -23.676601, -0.3055371, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.44442, -1.3836383, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Repos3"]
 mesh = SubResource("BoxMesh_kgmsj")
@@ -271,7 +271,7 @@ shape = SubResource("BoxShape3D_6x21t")
 metadata/_edit_lock_ = true
 
 [node name="wall6" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -24.56931, 5.1179605, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 36.551712, 4.0398593, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="wall6"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.21263838, 0)
@@ -282,11 +282,14 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115356445, 2.7220144, 0.0
 shape = SubResource("BoxShape3D_s1er4")
 
 [node name="obstacle_disparait" parent="." instance=ExtResource("11_uw1q4")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -46.13, 3.602, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.991022, 2.5238988, 0)
 fade_time = 1.0
 disappear_delay = 1.0
 
 [node name="obstacle_disparait2" parent="." instance=ExtResource("11_uw1q4")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -29.346, 0.848, 0)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 31.775023, -0.23010117, 0)
 fade_time = 0.5
 disappear_delay = 1.0
+
+[node name="Teleporter" parent="." instance=ExtResource("6_n1o3j")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 37.39181, -0.92699087, -1.5272374)

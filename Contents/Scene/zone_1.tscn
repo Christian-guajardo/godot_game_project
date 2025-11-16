@@ -278,22 +278,18 @@ fade_time = 1.0
 disappear_delay = 1.0
 
 [node name="Parcours_2" parent="." instance=ExtResource("13_uiixc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, 0, 88.67971)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2142553, 1.0963585, 88.67971)
 
-[node name="Teleporter_1" parent="." node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
+[node name="Teleporter_1" parent="." instance=ExtResource("14_uiixc")]
 transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 57.269455, 4.036008, -1.5964562)
-teleport_destination = NodePath("")
 
 [node name="Teleporter" parent="." node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.453699, 0.44424152, -6.822547)
-teleport_destination = NodePath("")
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4536989, 0.44424152, 0.5057871)
+teleport_destination = NodePath("../Parcours_2")
 
 [node name="moving_obstacle6" parent="." instance=ExtResource("3_ayfjx")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23.102898, 2.6227827, 88.624725)
 speed = 3.0
-
-[node name="Teleporter2" parent="." instance=ExtResource("14_uiixc")]
-transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 34.274918, 0.16350198, 87.24038)
 
 [node name="obstacle_disparait3" parent="." instance=ExtResource("4_ubnrs")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.278, 1.512, 0)
