@@ -153,11 +153,6 @@ metadata/_edit_lock_ = true
 transform = Transform3D(-0.07478284, 0.91288555, 0.4013072, 0.80534035, -0.18203843, 0.5641711, 0.58807695, 0.36537918, -0.72157025, 14.738268, 3.1494303, 0.16193835)
 shadow_enabled = true
 
-[node name="obstacle_disparait" parent="." instance=ExtResource("4_ubnrs")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.277742, 1.5115439, -0.000972533)
-fade_time = 1.0
-disappear_delay = 1.0
-
 [node name="PlayerElement" parent="." instance=ExtResource("2_fwodr")]
 
 [node name="moving_obstacle" parent="." instance=ExtResource("3_ayfjx")]
@@ -246,15 +241,15 @@ metadata/_edit_lock_ = true
 [node name="respawn_flag2" parent="." instance=ExtResource("11_5e7r4")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 44.53146, 4.4153895, 1.957397)
 
-[node name="obstacle_disparait2" parent="." instance=ExtResource("4_ubnrs")]
-transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 36.26756, 5.041, -2.0957032e-08)
+[node name="obstacle_disparait4" parent="." instance=ExtResource("4_ubnrs")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 36.268, 5.041, 0)
 fade_time = 1.0
 disappear_delay = 1.0
 
-[node name="obstacle_disparait3" parent="." instance=ExtResource("4_ubnrs")]
-transform = Transform3D(1.311342e-07, 0, 1, 0, 1, 0, -1, 0, 1.311342e-07, 40.37234, 4.387, -1.7119874e-08)
+[node name="obstacle_disparait2" parent="." instance=ExtResource("4_ubnrs")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40.372, 4.387, 0)
 fade_time = 1.0
-disappear_delay = 1.0
+disappear_delay = 1.5
 
 [node name="obstacle_despawn_when_player_touch6" parent="." instance=ExtResource("10_qndto")]
 transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 38.34868, 4.847297, 4.6179684e-07)
@@ -377,9 +372,6 @@ fall_distance = 10.0
 
 [node name="buisson_5" parent="Parcours_2" instance=ExtResource("6_eygts")]
 transform = Transform3D(1, 0, -1.0658141e-14, 0, 1, 0, 1.0658141e-14, 0, 1, -55.916267, 0.58393383, 2.2168045)
-
-[node name="obstacle_disparait4" parent="Parcours_2" instance=ExtResource("4_ubnrs")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -46.1302, 3.6019387, 0.009757996)
 
 [node name="obstacle_fall_when_player_touch3" parent="Parcours_2" instance=ExtResource("13_qset5")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -44.276, 4.487, 0)
@@ -515,11 +507,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_to2fn")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.5377893, 0.02192688)
 shape = SubResource("BoxShape3D_00ig2")
 
-[node name="obstacle_disparait5" parent="Parcours_2" instance=ExtResource("4_ubnrs")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -29.34588, 0.8480791, 0)
-fade_time = 1.0
-disappear_delay = 2.0
-
 [node name="obstacle_fall_when_player_touch5" parent="Parcours_2" instance=ExtResource("13_qset5")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -25.918217, 2.27459, -0.043647766)
 fall_distance = 8.0
@@ -551,12 +538,22 @@ mesh = SubResource("BoxMesh_s1er4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0115356445, 2.7220144, 0.0064697266)
 shape = SubResource("BoxShape3D_s1er4")
 
+[node name="obstacle_disparait" parent="Parcours_2" instance=ExtResource("4_ubnrs")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -46.13, 3.602, 0)
+fade_time = 1.0
+disappear_delay = 1.0
+
+[node name="obstacle_disparait2" parent="Parcours_2" instance=ExtResource("4_ubnrs")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -29.346, 0.848, 0)
+fade_time = 0.5
+disappear_delay = 1.0
+
 [node name="Teleporter_1" parent="." node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
 transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 57.269455, 4.036008, -1.5964562)
 teleport_destination = NodePath("../Parcours_2/Tp_player_1")
 
 [node name="Teleporter" parent="." node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4536989, 0.44424152, -0.3185072)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.453699, 0.44424152, -6.822547)
 teleport_destination = NodePath("../Parcours_2/respawn_flag")
 
 [node name="moving_obstacle6" parent="." instance=ExtResource("3_ayfjx")]
@@ -565,5 +562,10 @@ speed = 3.0
 
 [node name="Teleporter2" parent="." instance=ExtResource("14_uiixc")]
 transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 34.274918, 0.16350198, 87.24038)
+
+[node name="obstacle_disparait3" parent="." instance=ExtResource("4_ubnrs")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.278, 1.512, 0)
+fade_time = 1.0
+disappear_delay = 1.0
 
 [connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
