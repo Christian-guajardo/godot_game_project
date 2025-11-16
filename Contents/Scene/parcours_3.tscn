@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://dqfv6qa553a2"]
+[gd_scene load_steps=25 format=3 uid="uid://dh5cvp3lritqc"]
 
 [ext_resource type="PackedScene" uid="uid://gyqk6w57oixp" path="res://Contents/Assets/Furniture/barriere.tscn" id="1_abc01"]
 [ext_resource type="PackedScene" uid="uid://flv23fke35rm" path="res://Contents/Assets/Foliage/buisson_1.tscn" id="2_abc02"]
@@ -22,39 +22,37 @@ albedo_color = Color(0.15, 0.6, 0.2, 1)
 size = Vector3(8, 1, 6)
 
 [sub_resource type="BoxMesh" id="BoxMesh_platform"]
-size = Vector3(2.5, 0.5, 2.5)
+size = Vector3(5.5, 0.5, 4)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_platform"]
-albedo_color = Color(0.4, 0.45, 0.5, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_platform"]
-size = Vector3(2.5, 0.5, 2.5)
+size = Vector3(5.4908676, 0.5, 2.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_narrow"]
+size = Vector3(1.2, 0.5, 9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_narrow"]
+size = Vector3(1.2, 0.5, 8.998413)
 
 [sub_resource type="BoxMesh" id="BoxMesh_wall"]
-size = Vector3(0.5, 6, 5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_wall"]
-size = Vector3(0.5, 6, 5)
+size = Vector3(0.5, 5, 7)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_wall"]
 albedo_color = Color(0.55, 0.55, 0.6, 1)
 
-[sub_resource type="BoxMesh" id="BoxMesh_narrow"]
-size = Vector3(1.2, 0.5, 5)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_narrow"]
-size = Vector3(1.2, 0.5, 5)
+[sub_resource type="BoxShape3D" id="BoxShape3D_wall"]
+size = Vector3(0.5, 4.9731445, 7.0047607)
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_rest"]
-albedo_color = Color(0.3, 0.5, 0.7, 1)
+albedo_color = Color(0.14901961, 0.6, 0.2, 1)
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_rest"]
-size = Vector3(3, 1, 4)
+size = Vector3(5.5178223, 0.51342773, 4)
 
 [node name="Parcours_3" type="StaticBody3D"]
 
 [node name="StartPlatform" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="StartPlatform"]
 mesh = SubResource("BoxMesh_start")
@@ -82,17 +80,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87, 2.5)
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
 
 [node name="obstacle_fall1" parent="Section1_FallingPlatforms" instance=ExtResource("7_abc07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6642661, 0.5, 0)
 delay_before_fall = 0.3
 fall_distance = 12.0
 
 [node name="obstacle_fall2" parent="Section1_FallingPlatforms" instance=ExtResource("7_abc07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.5, 1.2, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.1313496, 1.2, 0)
 delay_before_fall = 0.25
 fall_distance = 12.0
 
 [node name="obstacle_fall3" parent="Section1_FallingPlatforms" instance=ExtResource("7_abc07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 2.0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.1381922, 2, 0)
 delay_before_fall = 0.2
 fall_distance = 12.0
 
@@ -100,13 +98,15 @@ fall_distance = 12.0
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 2.5, 0)
 
 [node name="Platform1" type="StaticBody3D" parent="Section2_DisappearingMaze"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 2)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3071442, 0, -0.1959219)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Section2_DisappearingMaze/Platform1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3640795, 0, 0)
 mesh = SubResource("BoxMesh_platform")
 surface_material_override/0 = SubResource("StandardMaterial3D_platform")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Section2_DisappearingMaze/Platform1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.3629112, 0, 0)
 shape = SubResource("BoxShape3D_platform")
 
 [node name="obstacle_despawn1" parent="Section2_DisappearingMaze" instance=ExtResource("11_abc11")]
@@ -114,30 +114,19 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, 0)
 fade_time = 1.0
 disappear_delay = 1.5
 
-[node name="obstacle_despawn2" parent="Section2_DisappearingMaze" instance=ExtResource("11_abc11")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 0, -2.5)
-fade_time = 1.0
-disappear_delay = 2.0
-
 [node name="obstacle_despawn3" parent="Section2_DisappearingMaze" instance=ExtResource("11_abc11")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6.479969, 0, 0)
 fade_time = 0.8
 disappear_delay = 1.2
 
-[node name="obstacle_despawn4" parent="Section2_DisappearingMaze" instance=ExtResource("11_abc11")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 2.5)
-fade_time = 0.8
-disappear_delay = 1.8
+[node name="obstacle_fall_when_player_touch" parent="Section2_DisappearingMaze" instance=ExtResource("7_abc07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.745203, 0, 0)
+fall_distance = 10.0
 
-[node name="Platform2" type="StaticBody3D" parent="Section2_DisappearingMaze"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 0, -1)
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Section2_DisappearingMaze/Platform2"]
-mesh = SubResource("BoxMesh_platform")
-surface_material_override/0 = SubResource("StandardMaterial3D_platform")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Section2_DisappearingMaze/Platform2"]
-shape = SubResource("BoxShape3D_platform")
+[node name="obstacle_fall_when_player_touch2" parent="Section2_DisappearingMaze" instance=ExtResource("7_abc07")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.03034, 0, 0)
+respawn_time = 2.0
+fall_distance = 10.0
 
 [node name="Section3_MovingObstacles" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26, 2.5, 0)
@@ -149,20 +138,23 @@ mesh = SubResource("BoxMesh_narrow")
 surface_material_override/0 = SubResource("StandardMaterial3D_platform")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Section3_MovingObstacles/NarrowBridge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0005493164)
 shape = SubResource("BoxShape3D_narrow")
 
 [node name="WallLeft" type="StaticBody3D" parent="Section3_MovingObstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.0878677, 1.8465886, -1.8436794)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Section3_MovingObstacles/WallLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0080013275, 0, 0)
 mesh = SubResource("BoxMesh_wall")
 surface_material_override/0 = SubResource("StandardMaterial3D_wall")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Section3_MovingObstacles/WallLeft"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.008850098)
 shape = SubResource("BoxShape3D_wall")
 
 [node name="WallRight" type="StaticBody3D" parent="Section3_MovingObstacles"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 3, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 2.0932484, 1.1644669)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Section3_MovingObstacles/WallRight"]
 mesh = SubResource("BoxMesh_wall")
@@ -172,19 +164,30 @@ surface_material_override/0 = SubResource("StandardMaterial3D_wall")
 shape = SubResource("BoxShape3D_wall")
 
 [node name="moving_obstacle1" parent="Section3_MovingObstacles" instance=ExtResource("9_abc09")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7102864, -1.8694)
 distance = 2.5
-speed = 1.5
 
 [node name="moving_obstacle2" parent="Section3_MovingObstacles" instance=ExtResource("9_abc09")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.3, 1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68806624, 1.8480349)
 distance = 2.5
-speed = 1.5
 
 [node name="moving_obstacle3" parent="Section3_MovingObstacles" instance=ExtResource("9_abc09")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1528287, 0)
 distance = 3.0
 speed = 2.0
+
+[node name="moving_obstacle" parent="Section3_MovingObstacles" instance=ExtResource("9_abc09")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -2.6145897, 0.19521427, 0)
+
+[node name="obstacle_despawn_when_player_touch" parent="Section3_MovingObstacles" instance=ExtResource("8_abc08")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5222797, 0, 3.033771)
+
+[node name="obstacle_despawn_when_player_touch2" parent="Section3_MovingObstacles" instance=ExtResource("8_abc08")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8900585, 0, -3.7490206)
+
+[node name="moving_obstacle4" parent="Section3_MovingObstacles" instance=ExtResource("9_abc09")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 3.2502995, 0, 0)
+distance = 3.0
 
 [node name="RestPlatform1" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33, 2.5, 0)
@@ -194,51 +197,51 @@ mesh = SubResource("BoxMesh_platform")
 surface_material_override/0 = SubResource("StandardMaterial3D_rest")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="RestPlatform1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.00036621094, -0.0032958984, 0)
 shape = SubResource("BoxShape3D_rest")
 
 [node name="respawn_flag1" parent="RestPlatform1" instance=ExtResource("10_abc10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87, 1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.6382551, 1.5)
 
 [node name="arbre_boule" parent="RestPlatform1" instance=ExtResource("5_abc05")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2, 0.5, -1.5)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.2000008, 0.23597097, -1.5)
 
 [node name="Section4_MixedChallenge" type="Node3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 40, 2.5, 0)
 
 [node name="obstacle_despawn_touch1" parent="Section4_MixedChallenge" instance=ExtResource("8_abc08")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2, 0.5, 0)
-fade_time = 0.3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, 5, 0)
+fade_time = 1.0
 
 [node name="obstacle_fall4" parent="Section4_MixedChallenge" instance=ExtResource("7_abc07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, -1.5)
-delay_before_fall = 0.15
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 5, -1)
+delay_before_fall = 1.0
 fall_distance = 15.0
 
 [node name="obstacle_fall5" parent="Section4_MixedChallenge" instance=ExtResource("7_abc07")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, 1.5)
-delay_before_fall = 0.15
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3, 5, 1)
+delay_before_fall = 1.0
 fall_distance = 15.0
 
 [node name="obstacle_despawn5" parent="Section4_MixedChallenge" instance=ExtResource("11_abc11")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 2.5, 0)
-fade_time = 0.6
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.5, 5.2, 0)
+fade_time = 1.0
 disappear_delay = 1.0
 
 [node name="moving_obstacle4" parent="Section4_MixedChallenge" instance=ExtResource("9_abc09")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11, 3, 0)
-distance = 4.0
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 6, 5.5, 0)
 speed = 2.5
 
 [node name="obstacle_despawn_touch2" parent="Section4_MixedChallenge" instance=ExtResource("8_abc08")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 3.5, 1)
-fade_time = 0.25
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9, 6.44503, 0)
+fade_time = 0.5
 
 [node name="obstacle_despawn_touch3" parent="Section4_MixedChallenge" instance=ExtResource("8_abc08")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 14, 3.5, -1)
-fade_time = 0.25
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5, 5.8033056, 0)
+fade_time = 0.5
 
 [node name="FinalPlatform" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 58, 6, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 54.055912, 9.05404, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="FinalPlatform"]
 mesh = SubResource("BoxMesh_start")
@@ -248,7 +251,7 @@ surface_material_override/0 = SubResource("StandardMaterial3D_green")
 shape = SubResource("BoxShape3D_start")
 
 [node name="respawn_flag_final" parent="FinalPlatform" instance=ExtResource("10_abc10")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.87, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2657175, 0)
 
 [node name="arbre_boule1" parent="FinalPlatform" instance=ExtResource("5_abc05")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.5, 2.5)
@@ -261,3 +264,71 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9, 2.8)
 
 [node name="Teleporter_victory" parent="FinalPlatform" instance=ExtResource("6_abc06")]
 transform = Transform3D(1, 0, 0, 0, 0.8, 0, 0, 0, 1, 0, 0.5, 0)
+
+[node name="goUp Section" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.302887, 2.5, 0)
+
+[node name="NarrowBridge" type="StaticBody3D" parent="goUp Section"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="goUp Section/NarrowBridge"]
+mesh = SubResource("BoxMesh_narrow")
+surface_material_override/0 = SubResource("StandardMaterial3D_platform")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="goUp Section/NarrowBridge"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.0005493164)
+shape = SubResource("BoxShape3D_narrow")
+
+[node name="WallRight" type="StaticBody3D" parent="goUp Section"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.5, 3, 0.1488154)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="goUp Section/WallRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.34358215, -0.86648655, 0)
+mesh = SubResource("BoxMesh_wall")
+surface_material_override/0 = SubResource("StandardMaterial3D_wall")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="goUp Section/WallRight"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.3404045, -0.86987305, 0)
+shape = SubResource("BoxShape3D_wall")
+
+[node name="moving_obstacle2" parent="goUp Section" instance=ExtResource("9_abc09")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.68806624, 1.8480349)
+distance = 2.5
+
+[node name="moving_obstacle3" parent="goUp Section" instance=ExtResource("9_abc09")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.1528287, 0)
+distance = 3.0
+speed = 2.0
+
+[node name="moving_obstacle4" parent="goUp Section" instance=ExtResource("9_abc09")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 2.2, 4.7, 0)
+distance = 3.0
+
+[node name="moving_obstacle1" parent="goUp Section" instance=ExtResource("9_abc09")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7102864, -1.8694)
+distance = 2.5
+
+[node name="moving_obstacle5" parent="goUp Section" instance=ExtResource("9_abc09")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7777691, 2.6917639)
+distance = 2.5
+
+[node name="moving_obstacle6" parent="goUp Section" instance=ExtResource("9_abc09")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8279209, -1.2103604)
+distance = 2.5
+
+[node name="moving_obstacle7" parent="goUp Section" instance=ExtResource("9_abc09")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.671867, 0)
+distance = 3.0
+speed = 2.0
+
+[node name="moving_obstacle8" parent="goUp Section" instance=ExtResource("9_abc09")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.31992, -1.7738417)
+distance = 2.5
+
+[node name="moving_obstacle9" parent="goUp Section" instance=ExtResource("9_abc09")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.2666583, 1.8654771)
+distance = 2.5
+
+[node name="moving_obstacle10" parent="goUp Section" instance=ExtResource("9_abc09")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.0207415, 0)
+distance = 3.0
+speed = 2.0

@@ -1,11 +1,10 @@
-[gd_scene load_steps=27 format=3 uid="uid://c65ah7mipcw0s"]
+[gd_scene load_steps=26 format=3 uid="uid://bwer21416s7jm"]
 
 [ext_resource type="PackedScene" uid="uid://gyqk6w57oixp" path="res://Contents/Assets/Furniture/barriere.tscn" id="1_0jnpw"]
 [ext_resource type="PackedScene" uid="uid://flv23fke35rm" path="res://Contents/Assets/Foliage/buisson_1.tscn" id="2_rqgx4"]
 [ext_resource type="PackedScene" uid="uid://cwt5fwhdh04if" path="res://Contents/Assets/Foliage/buisson_2.tscn" id="3_l1dmt"]
 [ext_resource type="PackedScene" uid="uid://c0mrhiolr2qc5" path="res://Contents/Assets/Foliage/arbre_fin.tscn" id="4_lxxyh"]
 [ext_resource type="PackedScene" uid="uid://ccbpqkvtwlnqb" path="res://Contents/Assets/Foliage/arbre_boule.tscn" id="5_13d2d"]
-[ext_resource type="PackedScene" uid="uid://cpgwkxd6cfd5u" path="res://Contents/Assets/teleporter_godot.tscn" id="6_n1o3j"]
 [ext_resource type="PackedScene" uid="uid://kryba0xois34" path="res://Contents/Assets/Obstacles/obstacle_fall_when_player_touch.tscn" id="7_t1cub"]
 [ext_resource type="PackedScene" uid="uid://xytobdjvr4am" path="res://Contents/Assets/Obstacles/obstacle_despawn_when_player_touch.tscn" id="8_w5puv"]
 [ext_resource type="PackedScene" uid="uid://dsyasp8kdi1x6" path="res://Contents/Assets/Obstacles/moving_obstacle.tscn" id="9_xo38a"]
@@ -89,13 +88,6 @@ transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 4.2877
 
 [node name="buisson_3" parent="." instance=ExtResource("3_l1dmt")]
 transform = Transform3D(-0.9993487, 0, -0.03608555, 0, 1, 0, 0.03608555, 0, -0.9993487, 8.34057, -0.167081, -1.8703308)
-
-[node name="Teleporter_decoy_1" parent="." instance=ExtResource("6_n1o3j")]
-transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 0.04262352, -0.64117575, -0.11502075)
-teleport_enabled = false
-
-[node name="Tp_player_1" type="StaticBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.051145554, -0.57810116, -0.07198334)
 
 [node name="buisson_4" parent="." instance=ExtResource("3_l1dmt")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.78894234, -0.1479454, -2.2418976)
@@ -236,8 +228,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.4627514, 0)
 mesh = SubResource("BoxMesh_00ig2")
 surface_material_override/0 = SubResource("StandardMaterial3D_to2fn")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
-
 [node name="StaticBody3D2" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 30.042366, 3.458458, 0)
 
@@ -290,6 +280,3 @@ disappear_delay = 1.0
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 31.775023, -0.23010117, 0)
 fade_time = 0.5
 disappear_delay = 1.0
-
-[node name="Teleporter" parent="." instance=ExtResource("6_n1o3j")]
-transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 37.39181, -0.92699087, -1.5272374)
