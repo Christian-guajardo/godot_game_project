@@ -1,9 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bpupadj04ovie"]
+[gd_scene load_steps=16 format=3 uid="uid://bpupadj04ovie"]
 
 [ext_resource type="Script" uid="uid://bjovnimqloao2" path="res://Contents/Scripts/Scene/deathArea.gd" id="1_7r4wt"]
 [ext_resource type="PackedScene" uid="uid://bxj35a15s3j5a" path="res://Contents/Assets/Player/player_element.tscn" id="2_fwodr"]
 [ext_resource type="PackedScene" uid="uid://dsyasp8kdi1x6" path="res://Contents/Assets/Obstacles/moving_obstacle.tscn" id="3_ayfjx"]
-[ext_resource type="PackedScene" uid="uid://cpuep25vfxv7n" path="res://Contents/Assets/Obstacles/obstacle_despawn.tscn" id="4_ubnrs"]
 [ext_resource type="PackedScene" uid="uid://flv23fke35rm" path="res://Contents/Assets/Foliage/buisson_1.tscn" id="6_eygts"]
 [ext_resource type="Texture2D" uid="uid://da2hswjci1p0e" path="res://Contents/Texture/skybox_cartoon.hdr" id="6_qset5"]
 [ext_resource type="PackedScene" uid="uid://ltmmlam8lfxe" path="res://Contents/Scene/parcours_1.tscn" id="10_qndto"]
@@ -36,22 +35,22 @@ sky = SubResource("Sky_71xcg")
 [node name="Zone1" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 
-[node name="Area3D" type="Area3D" parent="."]
+[node name="DeathArea" type="Area3D" parent="."]
 script = ExtResource("1_7r4wt")
 
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+[node name="CollisionShape3D" type="CollisionShape3D" parent="DeathArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 shape = SubResource("BoxShape3D_mtj75")
 
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Area3D"]
+[node name="MeshInstance3D" type="MeshInstance3D" parent="DeathArea"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.31791592, -0.8542471, 0.059098467)
 mesh = SubResource("BoxMesh_7r4wt")
 surface_material_override/0 = SubResource("StandardMaterial3D_71xcg")
 
-[node name="buisson_1" parent="Area3D" instance=ExtResource("6_eygts")]
+[node name="buisson_1" parent="DeathArea" instance=ExtResource("6_eygts")]
 transform = Transform3D(0.94111115, 0, 0.3380974, 0, 1, 0, -0.3380974, 0, 0.94111115, 13.953128, 0.5470915, 2.2040524)
 
-[node name="moving_obstacle" parent="Area3D" instance=ExtResource("3_ayfjx")]
+[node name="moving_obstacle" parent="DeathArea" instance=ExtResource("3_ayfjx")]
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 31.301958, 4.306, 6.980531e-08)
 
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
@@ -68,34 +67,25 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2142553, 1.0963585, 88.679
 
 [node name="Teleporter" parent="Parcours_2" node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 37.39181, -0.92699087, -1.5272374)
-teleport_destination = NodePath("../../Teleporter2")
+teleport_destination = NodePath("../../Parcours_3/Teleporter2")
 
 [node name="Teleporter2" parent="Parcours_2" instance=ExtResource("14_uiixc")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.6722008, 0)
 
-[node name="Teleporter_1" parent="." node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
-transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 57.269455, 4.036008, -1.5964562)
-teleport_destination = NodePath("../Parcours_2/Teleporter2")
-
-[node name="Teleporter" parent="." node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4536989, 0.44424152, 0.5057871)
-teleport_destination = NodePath("../Teleporter2")
-
-[node name="moving_obstacle6" parent="." instance=ExtResource("3_ayfjx")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23.102898, 2.6227827, 88.624725)
-speed = 3.0
-
-[node name="obstacle_disparait3" parent="." instance=ExtResource("4_ubnrs")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.278, 1.512, 0)
-fade_time = 1.0
-disappear_delay = 1.0
-
 [node name="Parcours_3" parent="." instance=ExtResource("15_s1er4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7293897, -1.9073486e-06, 186.44809)
 
-[node name="Teleporter2" parent="." instance=ExtResource("14_uiixc")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.3973036, 0.32155085, 186.20143)
+[node name="Teleporter2" parent="Parcours_3" instance=ExtResource("14_uiixc")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6679139, 0.32155275, -0.24665833)
 
 [node name="Parcours_1" parent="." instance=ExtResource("10_qndto")]
 
-[connection signal="body_entered" from="Area3D" to="Area3D" method="_on_body_entered"]
+[node name="Teleporter_1" parent="Parcours_1" node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
+transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 57.269455, 4.036008, -1.5964562)
+teleport_destination = NodePath("../../Parcours_2/Teleporter2")
+
+[node name="Teleporter" parent="Parcours_1" node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4536989, 0.44424152, 0.5057871)
+teleport_destination = NodePath("../../Parcours_3/Teleporter2")
+
+[connection signal="body_entered" from="DeathArea" to="DeathArea" method="_on_body_entered"]
