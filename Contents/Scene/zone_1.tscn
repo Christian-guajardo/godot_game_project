@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://bpupadj04ovie"]
+[gd_scene load_steps=17 format=3 uid="uid://bpupadj04ovie"]
 
 [ext_resource type="Script" uid="uid://bjovnimqloao2" path="res://Contents/Scripts/Scene/deathArea.gd" id="1_7r4wt"]
+[ext_resource type="PackedScene" uid="uid://bqm8xvx3l5kqy" path="res://Contents/Menu/UI/pausemenu_scene.tscn" id="1_qndto"]
 [ext_resource type="PackedScene" uid="uid://bxj35a15s3j5a" path="res://Contents/Assets/Player/player_element.tscn" id="2_fwodr"]
 [ext_resource type="PackedScene" uid="uid://dsyasp8kdi1x6" path="res://Contents/Assets/Obstacles/moving_obstacle.tscn" id="3_ayfjx"]
 [ext_resource type="PackedScene" uid="uid://flv23fke35rm" path="res://Contents/Assets/Foliage/buisson_1.tscn" id="6_eygts"]
@@ -34,6 +35,8 @@ sky = SubResource("Sky_71xcg")
 
 [node name="Zone1" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+
+[node name="PauseMenu" parent="." instance=ExtResource("1_qndto")]
 
 [node name="DeathArea" type="Area3D" parent="."]
 script = ExtResource("1_7r4wt")
@@ -85,7 +88,7 @@ transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-
 teleport_destination = NodePath("../../Parcours_2/Teleporter2")
 
 [node name="Teleporter" parent="Parcours_1" node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4536989, 0.44424152, 0.5057871)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4536986, 0.44424152, 4.5964127)
 teleport_destination = NodePath("../../Parcours_3/Teleporter2")
 
 [connection signal="body_entered" from="DeathArea" to="DeathArea" method="_on_body_entered"]
