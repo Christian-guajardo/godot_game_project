@@ -20,4 +20,5 @@ func _process(delta):
 			var secondes = int(temps_ecoule) % 60
 			$LabelTemps.text = "%02d:%02d" % [minutes, secondes]
 		else:
-			$LabelTemps.text = "00:00" 
+			$LabelTemps.text = "00:00"
+			$LabelDeathCount.text = "Death : 0"

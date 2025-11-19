@@ -1,6 +1,6 @@
 [gd_scene load_steps=22 format=3 uid="uid://bpupadj04ovie"]
 
-[ext_resource type="Script" uid="uid://b1i7ny0licdnc" path="res://Contents/Scene/zone_1.gd" id="1_5e7r4"]
+[ext_resource type="Script" uid="uid://b1i7ny0licdnc" path="res://Contents/Scene/Scripts/chrono.gd" id="1_5e7r4"]
 [ext_resource type="Script" uid="uid://bjovnimqloao2" path="res://Contents/Scripts/Scene/deathArea.gd" id="1_7r4wt"]
 [ext_resource type="PackedScene" uid="uid://bqm8xvx3l5kqy" path="res://Contents/Menu/UI/pausemenu_scene.tscn" id="1_qndto"]
 [ext_resource type="PackedScene" uid="uid://bxj35a15s3j5a" path="res://Contents/Assets/Player/player_element.tscn" id="2_fwodr"]
@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://flv23fke35rm" path="res://Contents/Assets/Foliage/buisson_1.tscn" id="6_eygts"]
 [ext_resource type="Texture2D" uid="uid://da2hswjci1p0e" path="res://Contents/Texture/skybox_cartoon.hdr" id="6_qset5"]
 [ext_resource type="PackedScene" uid="uid://ltmmlam8lfxe" path="res://Contents/Scene/parcours_1.tscn" id="10_qndto"]
-[ext_resource type="Script" uid="uid://bow5fgybrt7d1" path="res://Contents/Scene/final.gd" id="11_niwx7"]
+[ext_resource type="Script" uid="uid://bow5fgybrt7d1" path="res://Contents/Scene/Scripts/final.gd" id="11_niwx7"]
 [ext_resource type="PackedScene" uid="uid://bwer21416s7jm" path="res://Contents/Scene/parcours_2.tscn" id="13_uiixc"]
 [ext_resource type="PackedScene" uid="uid://cpgwkxd6cfd5u" path="res://Contents/Assets/teleporter_godot.tscn" id="14_uiixc"]
 [ext_resource type="PackedScene" uid="uid://dh5cvp3lritqc" path="res://Contents/Scene/parcours_3.tscn" id="15_s1er4"]
@@ -120,7 +120,21 @@ teleport_destination = NodePath("../../Parcours_3/Teleporter2")
 
 [node name="LabelTemps" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
-offset_right = 288.0
-offset_bottom = 87.0
+anchors_preset = -1
+anchor_right = 0.268
+anchor_bottom = 0.117000006
+offset_left = 14.0
+offset_top = 22.0
+offset_right = -11.736023
+offset_bottom = 22.183998
+
+[node name="LabelDeathCount" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = -1
+anchor_right = 0.10700001
+anchor_bottom = 0.039
+offset_left = 14.0
+offset_right = -22.264008
+offset_bottom = -0.27200127
 
 [connection signal="body_entered" from="DeathArea" to="DeathArea" method="_on_body_entered"]
