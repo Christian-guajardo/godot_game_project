@@ -80,6 +80,16 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ubnrs")
 
+[node name="Parcours_1" parent="." instance=ExtResource("10_qndto")]
+
+[node name="Teleporter_1" parent="Parcours_1" node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
+transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 57.269455, 4.036008, -1.5964562)
+teleport_destination = NodePath("../../Parcours_2/Teleporter2")
+
+[node name="Teleporter" parent="Parcours_1" node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4536986, 0.44424152, 4.5964127)
+teleport_destination = NodePath("../../Parcours_3/Teleporter2")
+
 [node name="Parcours_2" parent="." instance=ExtResource("13_uiixc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2142553, 1.0963585, 88.67971)
 
@@ -107,16 +117,6 @@ surface_material_override/0 = SubResource("StandardMaterial3D_uiixc")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Parcours_3/StaticBody3D"]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0016479492, 0)
 shape = SubResource("CylinderShape3D_s1er4")
-
-[node name="Parcours_1" parent="." instance=ExtResource("10_qndto")]
-
-[node name="Teleporter_1" parent="Parcours_1" node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
-transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 57.269455, 4.036008, -1.5964562)
-teleport_destination = NodePath("../../Parcours_2/Teleporter2")
-
-[node name="Teleporter" parent="Parcours_1" node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4536986, 0.44424152, 4.5964127)
-teleport_destination = NodePath("../../Parcours_3/Teleporter2")
 
 [node name="LabelTemps" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
