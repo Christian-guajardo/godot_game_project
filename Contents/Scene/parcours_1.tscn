@@ -1,0 +1,227 @@
+[gd_scene load_steps=17 format=3 uid="uid://ltmmlam8lfxe"]
+
+[ext_resource type="PackedScene" uid="uid://dsyasp8kdi1x6" path="res://Contents/Assets/Obstacles/moving_obstacle.tscn" id="1_upn1k"]
+[ext_resource type="PackedScene" uid="uid://flv23fke35rm" path="res://Contents/Assets/Foliage/buisson_1.tscn" id="2_yurgk"]
+[ext_resource type="PackedScene" uid="uid://c0mrhiolr2qc5" path="res://Contents/Assets/Foliage/arbre_fin.tscn" id="3_kin66"]
+[ext_resource type="PackedScene" uid="uid://gyqk6w57oixp" path="res://Contents/Assets/Furniture/barriere.tscn" id="4_pcvi3"]
+[ext_resource type="PackedScene" uid="uid://ccbpqkvtwlnqb" path="res://Contents/Assets/Foliage/arbre_boule.tscn" id="5_nax86"]
+[ext_resource type="PackedScene" uid="uid://xytobdjvr4am" path="res://Contents/Assets/Obstacles/obstacle_despawn_when_player_touch.tscn" id="6_6id4w"]
+[ext_resource type="PackedScene" uid="uid://bvo814vwbmnyo" path="res://Contents/Assets/RespawnFlag/respawn_flag.tscn" id="7_8eivv"]
+[ext_resource type="PackedScene" uid="uid://cwt5fwhdh04if" path="res://Contents/Assets/Foliage/buisson_2.tscn" id="8_hnrsy"]
+[ext_resource type="PackedScene" uid="uid://cpuep25vfxv7n" path="res://Contents/Assets/Obstacles/obstacle_despawn.tscn" id="9_aq855"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_231fi"]
+size = Vector3(10, 1, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_60g56"]
+albedo_color = Color(0.141176, 0.439216, 0.176471, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_wusgk"]
+size = Vector3(10, 1, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k40q0"]
+albedo_color = Color(0.13976, 0.440595, 0.177772, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_kgmsj"]
+size = Vector3(2, 1, 5)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tr7x5"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6x21t"]
+size = Vector3(2, 1, 5)
+
+[node name="Parcours_1" type="Node3D"]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.158128, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D"]
+mesh = SubResource("BoxMesh_231fi")
+surface_material_override/0 = SubResource("StandardMaterial3D_60g56")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D"]
+shape = SubResource("BoxShape3D_wusgk")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 12.4865, 0, 0)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D2"]
+mesh = SubResource("BoxMesh_231fi")
+surface_material_override/0 = SubResource("StandardMaterial3D_k40q0")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D2"]
+shape = SubResource("BoxShape3D_wusgk")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody3D3" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.533323, 0, 1.3188264e-07)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D3"]
+mesh = SubResource("BoxMesh_kgmsj")
+surface_material_override/0 = SubResource("StandardMaterial3D_tr7x5")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D3"]
+shape = SubResource("BoxShape3D_6x21t")
+metadata/_edit_lock_ = true
+
+[node name="moving_obstacle" parent="." instance=ExtResource("1_upn1k")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 18.777, -0.027, 0)
+speed = 1.0
+
+[node name="moving_obstacle3" parent="." instance=ExtResource("1_upn1k")]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 20.093, 0, 0)
+
+[node name="buisson_1" parent="." instance=ExtResource("2_yurgk")]
+transform = Transform3D(1, 0, -1.0658141e-14, 0, 1, 0, 1.0658141e-14, 0, 1, -0.1863301, 0.5297278, -2.323363)
+
+[node name="arbre_fin" parent="." instance=ExtResource("3_kin66")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.92277384, 0.5, -2.3653736)
+
+[node name="barriere" parent="." instance=ExtResource("4_pcvi3")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 1.428701, 0.5, -2.4982443)
+
+[node name="barriere2" parent="." instance=ExtResource("4_pcvi3")]
+transform = Transform3D(0.67301244, 0, -0.7396311, 0, 1, 0, 0.7396311, 0, 0.67301244, -1.5818683, 0.4720369, -1.4168415)
+
+[node name="barriere3" parent="." instance=ExtResource("4_pcvi3")]
+transform = Transform3D(-0.99983364, 0, 0.018237723, 0, 1, 0, -0.018237723, 0, -0.99983364, -1.7397057, 0.5, -0.80166036)
+
+[node name="barriere4" parent="." instance=ExtResource("4_pcvi3")]
+transform = Transform3D(-0.9338865, 0, -0.35756937, 0, 1, 0, 0.35756937, 0, -0.9338865, -1.6623497, 0.5, 0.54881555)
+
+[node name="barriere5" parent="." instance=ExtResource("4_pcvi3")]
+transform = Transform3D(-0.45014524, 0, -0.89295536, 0, 1, 0, 0.89295536, 0, -0.45014524, -0.90233237, 0.5, 1.8445451)
+
+[node name="arbre" parent="." instance=ExtResource("5_nax86")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.41152602, 0.5, 2.356895)
+
+[node name="buisson_2" parent="." instance=ExtResource("2_yurgk")]
+transform = Transform3D(1, 0, -1.0658141e-14, 0, 1, 0, 1.0658141e-14, 0, 1, 1.3664677, 0.5549289, 2.443774)
+
+[node name="obstacle_despawn_when_player_touch" parent="." instance=ExtResource("6_6id4w")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 21.408, 0, 0)
+
+[node name="respawn_flag" parent="." instance=ExtResource("7_8eivv")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 23.540377, 0.87, -1.7887137)
+
+[node name="obstacle_despawn_when_player_touch2" parent="." instance=ExtResource("6_6id4w")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 25.93545, 1.4182057, 8.674306e-08)
+fade_time = 1.0
+
+[node name="obstacle_despawn_when_player_touch3" parent="." instance=ExtResource("6_6id4w")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 27.469606, 2.4399176, 7.617177e-08)
+fade_time = 1.0
+
+[node name="obstacle_despawn_when_player_touch4" parent="." instance=ExtResource("6_6id4w")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 28.609995, 3.2048988, -1.4845395)
+fade_time = 1.0
+
+[node name="obstacle_despawn_when_player_touch5" parent="." instance=ExtResource("6_6id4w")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 29.648268, 4.031297, 8.1489816e-08)
+fade_time = 1.0
+
+[node name="buisson_3" parent="." instance=ExtResource("8_hnrsy")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 16.886776, 0.94089246, -2.2424438)
+
+[node name="arbre2" parent="." instance=ExtResource("5_nax86")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 11.4644785, 0.5, -2.2281203)
+
+[node name="arbre3" parent="." instance=ExtResource("5_nax86")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 14.893654, 0.5, 2.16694)
+
+[node name="barriere6" parent="." instance=ExtResource("4_pcvi3")]
+transform = Transform3D(-0.4766832, 0, 0.8790751, 0, 1, 0, -0.8790751, 0, -0.4766832, 17.272518, 0.5, 1.8794982)
+
+[node name="StaticBody3D4" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.707985, 4.273433, 5.7663135e-07)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D4"]
+mesh = SubResource("BoxMesh_kgmsj")
+surface_material_override/0 = SubResource("StandardMaterial3D_tr7x5")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D4"]
+shape = SubResource("BoxShape3D_6x21t")
+metadata/_edit_lock_ = true
+
+[node name="respawn_flag2" parent="." instance=ExtResource("7_8eivv")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 44.53146, 4.4153895, 1.957397)
+
+[node name="obstacle_disparait4" parent="." instance=ExtResource("9_aq855")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 36.268, 5.041, 0)
+fade_time = 1.0
+disappear_delay = 1.0
+
+[node name="obstacle_disparait2" parent="." instance=ExtResource("9_aq855")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 40.372, 4.387, 0)
+fade_time = 1.0
+disappear_delay = 1.5
+
+[node name="obstacle_despawn_when_player_touch6" parent="." instance=ExtResource("6_6id4w")]
+transform = Transform3D(-1, 0, 8.74228e-08, 0, 1, 0, -8.74228e-08, 0, -1, 38.34868, 4.847297, 4.6179684e-07)
+fade_time = 1.0
+disappear_delay = 1.0
+
+[node name="obstacle_despawn_when_player_touch7" parent="." instance=ExtResource("6_6id4w")]
+transform = Transform3D(1, 0, -1.748456e-07, 0, 1, 0, 1.748456e-07, 0, 1, 42.254307, 4.498591, 9.8538976e-08)
+fade_time = 1.0
+disappear_delay = 1.0
+
+[node name="StaticBody3D5" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 44.4967, 3.539651, 1.0482213e-06)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D5"]
+mesh = SubResource("BoxMesh_kgmsj")
+surface_material_override/0 = SubResource("StandardMaterial3D_tr7x5")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D5"]
+shape = SubResource("BoxShape3D_6x21t")
+metadata/_edit_lock_ = true
+
+[node name="obstacle_despawn_when_player_touch8" parent="." instance=ExtResource("6_6id4w")]
+transform = Transform3D(1, 0, -1.748456e-07, 0, 1, 0, 1.748456e-07, 0, 1, 46.486794, 4.498591, 2.835469e-07)
+fade_time = 1.0
+disappear_delay = 1.0
+
+[node name="moving_obstacle2" parent="." instance=ExtResource("1_upn1k")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 48.23176, 4.306, 8.0983057e-07)
+speed = 1.0
+
+[node name="moving_obstacle4" parent="." instance=ExtResource("1_upn1k")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 49.786068, 4.306, 8.7777164e-07)
+
+[node name="moving_obstacle5" parent="." instance=ExtResource("1_upn1k")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 53.320213, 4.306, 1.0322541e-06)
+speed = 1.0
+
+[node name="obstacle_despawn_when_player_touch9" parent="." instance=ExtResource("6_6id4w")]
+transform = Transform3D(1, 0, -1.748456e-07, 0, 1, 0, 1.748456e-07, 0, 1, 51.729298, 4.498591, 5.127041e-07)
+fade_time = 1.0
+disappear_delay = 1.0
+
+[node name="StaticBody3D6" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 57.28241, 3.5976796, 1.6071024e-06)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="StaticBody3D6"]
+mesh = SubResource("BoxMesh_kgmsj")
+surface_material_override/0 = SubResource("StandardMaterial3D_tr7x5")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="StaticBody3D6"]
+shape = SubResource("BoxShape3D_6x21t")
+metadata/_edit_lock_ = true
+
+[node name="obstacle_despawn_when_player_touch10" parent="." instance=ExtResource("6_6id4w")]
+transform = Transform3D(1, 0, -1.748456e-07, 0, 1, 0, 1.748456e-07, 0, 1, 54.959995, 4.498591, 6.5392226e-07)
+fade_time = 1.0
+disappear_delay = 1.0
+
+[node name="obstacle_disparait3" parent="." instance=ExtResource("9_aq855")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 6.278, 1.512, 0)
+fade_time = 1.0
+disappear_delay = 1.0
