@@ -1,14 +1,15 @@
-[gd_scene load_steps=22 format=3 uid="uid://bpupadj04ovie"]
+[gd_scene load_steps=20 format=3 uid="uid://bpupadj04ovie"]
 
-[ext_resource type="Script" uid="uid://b1i7ny0licdnc" path="res://Contents/Scene/zone_1.gd" id="1_5e7r4"]
+[ext_resource type="Script" uid="uid://b1i7ny0licdnc" path="res://Contents/Scene/Scripts/chrono.gd" id="1_5e7r4"]
 [ext_resource type="Script" uid="uid://bjovnimqloao2" path="res://Contents/Scripts/Scene/deathArea.gd" id="1_7r4wt"]
 [ext_resource type="PackedScene" uid="uid://bqm8xvx3l5kqy" path="res://Contents/Menu/UI/pausemenu_scene.tscn" id="1_qndto"]
 [ext_resource type="PackedScene" uid="uid://bxj35a15s3j5a" path="res://Contents/Assets/Player/player_element.tscn" id="2_fwodr"]
 [ext_resource type="PackedScene" uid="uid://dsyasp8kdi1x6" path="res://Contents/Assets/Obstacles/moving_obstacle.tscn" id="3_ayfjx"]
+[ext_resource type="PackedScene" uid="uid://endmenu001" path="res://Contents/Menu/UI/endmenu_scene.tscn" id="3_qset5"]
 [ext_resource type="PackedScene" uid="uid://flv23fke35rm" path="res://Contents/Assets/Foliage/buisson_1.tscn" id="6_eygts"]
 [ext_resource type="Texture2D" uid="uid://da2hswjci1p0e" path="res://Contents/Texture/skybox_cartoon.hdr" id="6_qset5"]
 [ext_resource type="PackedScene" uid="uid://ltmmlam8lfxe" path="res://Contents/Scene/parcours_1.tscn" id="10_qndto"]
-[ext_resource type="Script" uid="uid://bow5fgybrt7d1" path="res://Contents/Scene/final.gd" id="11_niwx7"]
+[ext_resource type="PackedScene" uid="uid://end0one001" path="res://Contents/Assets/Furniture/end_zone_scene.tscn" id="13_s1er4"]
 [ext_resource type="PackedScene" uid="uid://bwer21416s7jm" path="res://Contents/Scene/parcours_2.tscn" id="13_uiixc"]
 [ext_resource type="PackedScene" uid="uid://cpgwkxd6cfd5u" path="res://Contents/Assets/teleporter_godot.tscn" id="14_uiixc"]
 [ext_resource type="PackedScene" uid="uid://dh5cvp3lritqc" path="res://Contents/Scene/parcours_3.tscn" id="15_s1er4"]
@@ -35,23 +36,14 @@ sky_material = SubResource("PanoramaSkyMaterial_7r4wt")
 background_mode = 2
 sky = SubResource("Sky_71xcg")
 
-[sub_resource type="CylinderMesh" id="CylinderMesh_qset5"]
-top_radius = 1.5
-bottom_radius = 1.5
-height = 0.5
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_uiixc"]
-albedo_color = Color(1, 0.32941177, 0.13333334, 1)
-
-[sub_resource type="CylinderShape3D" id="CylinderShape3D_s1er4"]
-height = 0.49743652
-radius = 1.5004883
-
 [node name="Zone1" type="Node3D"]
 transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
 script = ExtResource("1_5e7r4")
 
 [node name="PauseMenu" parent="." instance=ExtResource("1_qndto")]
+
+[node name="EndMenu" parent="." instance=ExtResource("3_qset5")]
+visible = false
 
 [node name="DeathArea" type="Area3D" parent="."]
 script = ExtResource("1_7r4wt")
@@ -80,6 +72,16 @@ shadow_enabled = true
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_ubnrs")
 
+[node name="Parcours_1" parent="." instance=ExtResource("10_qndto")]
+
+[node name="Teleporter_1" parent="Parcours_1" node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
+transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 57.269455, 4.036008, -1.5964562)
+teleport_destination = NodePath("../../Parcours_2/Teleporter2")
+
+[node name="Teleporter" parent="Parcours_1" node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4536989, 0.44424152, 0.38290802)
+teleport_destination = NodePath("../../Parcours_3/StaticBody3D")
+
 [node name="Parcours_2" parent="." instance=ExtResource("13_uiixc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2142553, 1.0963585, 88.67971)
 
@@ -93,34 +95,32 @@ transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, -0.6722008, 0)
 [node name="Parcours_3" parent="." instance=ExtResource("15_s1er4")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.7293897, -1.9073486e-06, 186.44809)
 
+[node name="EndZone" parent="Parcours_3" instance=ExtResource("13_s1er4")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 54.50576, 9.631677, -0.071624756)
+
 [node name="Teleporter2" parent="Parcours_3" instance=ExtResource("14_uiixc")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.6679139, 0.32155275, -0.24665833)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Parcours_3"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 55.31985, 9.432286, 0)
-script = ExtResource("11_niwx7")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Parcours_3/StaticBody3D"]
-mesh = SubResource("CylinderMesh_qset5")
-surface_material_override/0 = SubResource("StandardMaterial3D_uiixc")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Parcours_3/StaticBody3D"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0016479492, 0)
-shape = SubResource("CylinderShape3D_s1er4")
-
-[node name="Parcours_1" parent="." instance=ExtResource("10_qndto")]
-
-[node name="Teleporter_1" parent="Parcours_1" node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
-transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-08, 57.269455, 4.036008, -1.5964562)
-teleport_destination = NodePath("../../Parcours_2/Teleporter2")
-
-[node name="Teleporter" parent="Parcours_1" node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 3.4536986, 0.44424152, 4.5964127)
-teleport_destination = NodePath("../../Parcours_3/Teleporter2")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 51.844345, 11.231945, 0)
 
 [node name="LabelTemps" type="Label" parent="."]
 modulate = Color(0, 0, 0, 1)
-offset_right = 288.0
-offset_bottom = 87.0
+anchors_preset = -1
+anchor_right = 0.268
+anchor_bottom = 0.117000006
+offset_left = 14.0
+offset_top = 22.0
+offset_right = -11.736023
+offset_bottom = 22.183998
+
+[node name="LabelDeathCount" type="Label" parent="."]
+modulate = Color(0, 0, 0, 1)
+anchors_preset = -1
+anchor_right = 0.10700001
+anchor_bottom = 0.039
+offset_left = 14.0
+offset_right = -22.264008
+offset_bottom = -0.27200127
 
 [connection signal="body_entered" from="DeathArea" to="DeathArea" method="_on_body_entered"]
