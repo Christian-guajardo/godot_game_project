@@ -22,8 +22,7 @@ func update_stats():
 	death_label.text = "Death : %d" % [GameManager.player_deaths]
 
 func _on_retry_pressed():
-	get_tree().paused = false
-	GameManager.reset_game()
+	get_tree().change_scene_to_file("res://Contents/Scene/zone_1.tscn")
 
 func _on_exit_pressed():
 	GameManager.exit_game()
