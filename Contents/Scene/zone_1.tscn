@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://bpupadj04ovie"]
+[gd_scene load_steps=21 format=3 uid="uid://bpupadj04ovie"]
 
 [ext_resource type="Script" uid="uid://b1i7ny0licdnc" path="res://Contents/Scene/Scripts/chrono.gd" id="1_5e7r4"]
 [ext_resource type="Script" uid="uid://bjovnimqloao2" path="res://Contents/Scripts/Scene/deathArea.gd" id="1_7r4wt"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ltmmlam8lfxe" path="res://Contents/Scene/parcours_1.tscn" id="10_qndto"]
 [ext_resource type="PackedScene" uid="uid://end0one001" path="res://Contents/Assets/Furniture/end_zone_scene.tscn" id="13_s1er4"]
 [ext_resource type="PackedScene" uid="uid://bwer21416s7jm" path="res://Contents/Scene/parcours_2.tscn" id="13_uiixc"]
+[ext_resource type="AudioStream" uid="uid://1s2enshjxl8i" path="res://Contents/Audio/LoFi_loop_perfect.mp3" id="14_s1er4"]
 [ext_resource type="PackedScene" uid="uid://cpgwkxd6cfd5u" path="res://Contents/Assets/teleporter_godot.tscn" id="14_uiixc"]
 [ext_resource type="PackedScene" uid="uid://dh5cvp3lritqc" path="res://Contents/Scene/parcours_3.tscn" id="15_s1er4"]
 
@@ -122,5 +123,9 @@ anchor_bottom = 0.039
 offset_left = 14.0
 offset_right = -22.264008
 offset_bottom = -0.27200127
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("14_s1er4")
+autoplay = true
 
 [connection signal="body_entered" from="DeathArea" to="DeathArea" method="_on_body_entered"]
