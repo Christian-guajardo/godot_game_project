@@ -22,10 +22,10 @@ func return_to_main_menu():
 	game_started = false
 	get_tree().change_scene_to_file("res://Contents/Menu/UI/mainmenu_scene.tscn")
 
-func show_end_menu(time: String, deaths: int):
+func show_end_menu(time: String, death: int):
 	# Sauvegarder les stats du joueur
 	player_time = time
-	player_deaths = deaths
+	player_deaths = death
 	
 	game_started = false
 	get_tree().change_scene_to_file("res://Contents/Menu/UI/endmenu_scene.tscn")

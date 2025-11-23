@@ -14,9 +14,7 @@ func _ready():
 func update_stats():
 	# Récupérer le temps depuis le GameManager
 	var time_seconds = GameManager.player_time
-	var minutes = int(time_seconds) / 60
-	var seconds = int(time_seconds) % 60
-	time_label.text = "Your time: %02d:%02d" % [minutes, seconds]
+	time_label.text = "Your time: %s" % [time_seconds]
 	
 	# Récupérer le nombre de morts
 	death_label.text = "Death : %d" % [GameManager.player_deaths]

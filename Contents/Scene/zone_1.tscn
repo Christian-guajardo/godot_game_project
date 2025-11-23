@@ -80,7 +80,7 @@ transform = Transform3D(-2.1855694e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.1855694e-
 teleport_destination = NodePath("../../Parcours_2/Teleporter2")
 
 [node name="Teleporter" parent="Parcours_1" node_paths=PackedStringArray("teleport_destination") instance=ExtResource("14_uiixc")]
-transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -10.982932, 0.44424152, -0.48810363)
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -14.263621, 0.44424152, -0.48810378)
 teleport_destination = NodePath("../../Parcours_3/StaticBody3D")
 
 [node name="Parcours_2" parent="." instance=ExtResource("13_uiixc")]
